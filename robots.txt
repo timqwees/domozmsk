@@ -71,7 +71,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Host: https://domozmsk.ru
+Host: domozmsk.ru
 
 Clean-param: utm_source /
 Clean-param: utm_medium /

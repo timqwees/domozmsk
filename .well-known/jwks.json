@@ -1,10 +1,3 @@
 {
-    "keys": [
-        {
-            "kid": "domoz-bot-key-2026",
-            "kty": "OKP",
-            "crv": "Ed25519",
-            "x": "MCowBQYDK2VwAyEA...ВАШ_РЕАЛЬНЫЙ_PUBLIC_KEY_ЗДЕСЬ..."
-        }
-    ]
+    "keys": []
 }

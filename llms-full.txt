@@ -7,7 +7,7 @@
 ## О компании (ключевые факты)
 - Полный цикл: ландшафтное проектирование → инженерные системы → благоустройство → озеленение → сервисное обслуживание.
 - Сильный инженерный акцент: решаем сложные проблемы участков (высокий уровень грунтовых вод, глина, уклон, стоячая вода).
-- Принципы работы: официальный договор, фиксированная смета, еженедельные фотоотчёты, гарантия до 5 лет.
+- Принципы работы: официальный договор, фиксированная смета, еженедельные фотоотчёты, официальная гарантия по договору.
 - Целевая аудитория: владельцы загородных домов 8–50+ соток, люди с доходом выше среднего, ценящие качество, комфорт и минимальный уход.
 
 ## Основные услуги (подробно)
@@ -51,17 +51,17 @@
 ## Важные страницы сайта
 
 - Главная: https://domozmsk.ru/
-- Услуги: https://domozmsk.ru/services
-- Проектирование: https://domozmsk.ru/proektirovanie
-- Автополив: https://domozmsk.ru/avtopoliv/
-- Дренаж: https://domozmsk.ru/drainage
-- Мощение: https://domozmsk.ru/moschenie/
-- Газон: https://domozmsk.ru/gazon/
-- Подпорные стенки: https://domozmsk.ru/design-retaining-walls/
-- Уход за садом: https://domozmsk.ru/uxod-za-sadom/
-- Блог: https://domozmsk.ru/blog/
-- Портфолио: https://domozmsk.ru/portfolio
+- Цены: https://domozmsk.ru/prices
+- Ландшафтное проектирование: https://domozmsk.ru/uslugi/landscape-design-project/
+- Автополив: https://domozmsk.ru/uslugi/avtopoliv/
+- Дренаж: https://domozmsk.ru/uslugi/drainage
+- Мощение: https://domozmsk.ru/uslugi/moschenie/
+- Газон: https://domozmsk.ru/uslugi/gazon/
+- Уход за садом: https://domozmsk.ru/uslugi/uxod-za-sadom/
+- Подпорные стенки: https://domozmsk.ru/uslugi/design-retaining-walls/
+- Блог: https://domozmsk.ru/blogs
 - О компании: https://domozmsk.ru/history-company/
+- Контакты: https://domozmsk.ru/history-company/contact
 
 ## Tone of Voice
 - Профессиональный, уверенный, экспертный.
