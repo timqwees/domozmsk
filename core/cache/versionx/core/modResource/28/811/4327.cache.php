@@ -1,1 +1,0 @@
-<?php if(time() > 1787401241){return null;} return '<table class="diff-wrapper diff diff-html diff-inline"><tbody class="change change-rep"><tr data-type="-"><th class="n-old">1</th><th></th><th class="sign del">-</th><td class="old"></td></tr><tr data-type="+"><th></th><th class="n-new">1</th><th class="sign ins">+</th><td class="new"><ins>1</ins></td></tr></tbody></table>';
