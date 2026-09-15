@@ -48,6 +48,10 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #RewriteRule ^(.*)$ https://example.com/$1 [R=301,L]
 
 
+# Canonicalize legacy homepage alias /main -> / (resource id 1 now has empty alias)
+RewriteRule ^main/?$ / [R=301,L]
+
+
 # The Friendly URLs part
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
