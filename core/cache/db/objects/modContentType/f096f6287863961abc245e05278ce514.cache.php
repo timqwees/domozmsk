@@ -1,0 +1,9 @@
+<?php  return array (
+  'id' => 6,
+  'name' => 'RSS',
+  'description' => 'For RSS feeds',
+  'mime_type' => 'application/rss+xml',
+  'file_extensions' => '.rss',
+  'headers' => NULL,
+  'binary' => 0,
+);

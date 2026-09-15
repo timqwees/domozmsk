@@ -1,0 +1,5 @@
+<?php  return array (
+  'name' => 'versionx',
+  'path' => '{core_path}components/versionx/',
+  'assets_path' => '{assets_path}components/versionx/',
+);

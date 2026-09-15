@@ -1,0 +1,5 @@
+<?php  return array (
+  'name' => 'clientconfig',
+  'path' => '{core_path}components/clientconfig/',
+  'assets_path' => '{assets_path}components/clientconfig/',
+);

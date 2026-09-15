@@ -1,0 +1,25 @@
+UpgradeMODX Log -- Friday August 21 2026 05:03 PM
+Файлы скачиваются
+Version: modx-2.8.9-pl.zip
+URL: https://modx.s3.amazonaws.com/releases/2.8.9/modx-2.8.9-pl.zip
+Скачано 2.8.9 -> /home/c/cg496041/public_html/ugmtemp/modx-2.8.9-pl.zip
+Файлы распаковываются
+    Source: /home/c/cg496041/public_html/ugmtemp/modx-2.8.9-pl.zip
+    Destination: /home/c/cg496041/public_html/ugmtemp/unzipped
+    Zip File Name modx-2.8.9-pl.zip
+    объекты к извлечению 5508
+    Назначение: /home/c/cg496041/public_html/ugmtemp/unzipped
+    Источник: /home/c/cg496041/public_html/ugmtemp/modx-2.8.9-pl.zip
+Распокованы modx.zip -> /home/c/cg496041/public_html/ugmtemp/unzipped
+Файлы копируются
+    Скопировано setup в /home/c/cg496041/public_html/setup
+    Скопировано core в /home/c/cg496041/public_html/core
+    Скопировано manager в /home/c/cg496041/public_html/manager
+    Скопировано connectors в /home/c/cg496041/public_html/connectors
+
+    Copy Time: 1,3002 s -- Объекты скопированы 5508
+Подготовка к установке
+Установка готова
+Очистка
+Очистка завершена (временные файлы удалены)
+Запуск установки

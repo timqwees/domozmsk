@@ -1,0 +1,1 @@
+<?php if(time() > 1789327314){return null;} return '<table class="diff-wrapper diff diff-html diff-inline"><tbody class="change change-rep"><tr data-type="-"><th class="n-old">1</th><th></th><th class="sign del">-</th><td class="old"><del>1</del></td></tr><tr data-type="+"><th></th><th class="n-new">1</th><th class="sign ins">+</th><td class="new"></td></tr></tbody></table>';
