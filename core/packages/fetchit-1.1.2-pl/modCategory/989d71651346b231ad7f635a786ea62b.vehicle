@@ -1,0 +1,151 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '21002af960de4a7d5dfa7a33752bae8b' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => false,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"tpl.FetchIt.example","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<form action=\\"[[~[[*id]]]]\\" method=\\"post\\">\\n  <fieldset>\\n\\n    <div>\\n      <label>[[%fetchit_label_name]]\\n        <input type=\\"text\\" name=\\"name\\" value=\\"[[+fi.name]]\\"\\/>\\n        <span data-error=\\"name\\">[[+fi.error.name]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <label>[[%fetchit_label_email]]\\n        <input type=\\"text\\" name=\\"email\\" value=\\"[[+fi.email]]\\"\\/>\\n        <span data-error=\\"email\\">[[+fi.error.email]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <label>[[%fetchit_label_message]]\\n        <textarea name=\\"message\\" rows=\\"5\\">[[+fi.message]]<\\/textarea>\\n        <span data-error=\\"message\\">[[+fi.error.message]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <button type=\\"reset\\">[[%fetchit_reset]]<\\/button>\\n      <button type=\\"submit\\">[[%fetchit_submit]]<\\/button>\\n    <\\/div>\\n\\n    [[+fi.success:is=`1`:then=`\\n    <div role=\\"alert\\">[[+fi.successMessage]]<\\/div>\\n    `]]\\n    [[+fi.validation_error:is=`1`:then=`\\n    <div role=\\"alert\\">[[+fi.validation_error_message]]<\\/div>\\n    `]]\\n  <\\/fieldset>\\n<\\/form>","locked":0,"properties":null,"static":0,"static_file":"core\\/components\\/fetchit\\/elements\\/chunks\\/example.tpl","content":"<form action=\\"[[~[[*id]]]]\\" method=\\"post\\">\\n  <fieldset>\\n\\n    <div>\\n      <label>[[%fetchit_label_name]]\\n        <input type=\\"text\\" name=\\"name\\" value=\\"[[+fi.name]]\\"\\/>\\n        <span data-error=\\"name\\">[[+fi.error.name]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <label>[[%fetchit_label_email]]\\n        <input type=\\"text\\" name=\\"email\\" value=\\"[[+fi.email]]\\"\\/>\\n        <span data-error=\\"email\\">[[+fi.error.email]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <label>[[%fetchit_label_message]]\\n        <textarea name=\\"message\\" rows=\\"5\\">[[+fi.message]]<\\/textarea>\\n        <span data-error=\\"message\\">[[+fi.error.message]]<\\/span>\\n      <\\/label>\\n    <\\/div>\\n\\n    <div>\\n      <button type=\\"reset\\">[[%fetchit_reset]]<\\/button>\\n      <button type=\\"submit\\">[[%fetchit_submit]]<\\/button>\\n    <\\/div>\\n\\n    [[+fi.success:is=`1`:then=`\\n    <div role=\\"alert\\">[[+fi.successMessage]]<\\/div>\\n    `]]\\n    [[+fi.validation_error:is=`1`:then=`\\n    <div role=\\"alert\\">[[+fi.validation_error_message]]<\\/div>\\n    `]]\\n  <\\/fieldset>\\n<\\/form>","file":"example"}',
+        'guid' => '6250b823a6862865bcd1764635d54642',
+        'native_key' => 0,
+        'signature' => '74a4c69ce8c006423117c680e9a7085c',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'ced5324a7760336a68b98e67675c9524' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":0,"source":1,"property_preprocess":0,"name":"FetchIt","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/** @var modX $modx *\\/\\r\\n\\/** @var FetchIt $FetchIt *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\nif (!$modx->loadClass(\'fetchit\', MODX_CORE_PATH . \'components\\/fetchit\\/model\\/\', false, true)) {\\r\\n    return false;\\r\\n}\\r\\n$FetchIt = new FetchIt($modx, $scriptProperties);\\r\\n\\r\\n$snippet = $modx->getOption(\'snippet\', $scriptProperties, \'FormIt\', true);\\r\\n$tpl = $modx->getOption(\'form\', $scriptProperties, \'tpl.FetchIt.example\', true);\\r\\n\\r\\n\\/** @var pdoTools $pdo *\\/\\r\\nif (class_exists(\'pdoTools\') && $pdo = $modx->getService(\'pdoTools\')) {\\r\\n    $content = $pdo->getChunk($tpl, $scriptProperties);\\r\\n} else {\\r\\n    $content = $modx->getChunk($tpl, $scriptProperties);\\r\\n}\\r\\nif (empty($content)) {\\r\\n    return $modx->lexicon(\'fetchit_err_chunk_nf\', array(\'name\' => $tpl));\\r\\n}\\r\\n\\r\\n\\/\\/ Add method = post\\r\\nif (preg_match(\'#<form.*?method=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', $content)) {\\r\\n    $content = preg_replace(\'#<form(.*?)method=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', \'<form\\\\\\\\1method=\\"post\\"\', $content);\\r\\n} else {\\r\\n    $content = str_ireplace(\'<form\', \'<form method=\\"post\\"\', $content);\\r\\n}\\r\\n\\r\\n\\/\\/ Add action for form processing\\r\\n$action = md5(http_build_query($scriptProperties));\\r\\n\\/\\/ Add selector to tag form\\r\\nif (preg_match(\'#<form.*?data-fetchit=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', $content, $matches)) {\\r\\n    $content = preg_replace(\'#<form(.*?)data-fetchit=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', \'<form\\\\\\\\data-fetchit=\\"$action\\"\', $content);\\r\\n} else {\\r\\n    $content = str_ireplace(\'<form\', \'<form data-fetchit=\\"\' . $action . \'\\"\', $content);\\r\\n}\\r\\n\\r\\n$FetchIt->loadScript($action);\\r\\n\\r\\n\\/\\/ Save snippet properties\\r\\nif (!empty(session_id())) {\\r\\n    \\/\\/ ... to user`s session\\r\\n    $_SESSION[\'FetchIt\'][$action] = $scriptProperties;\\r\\n} else {\\r\\n    \\/\\/ ... to cache file\\r\\n    $modx->cacheManager->set(\'fetchit\\/props_\' . $action, $scriptProperties, 3600);\\r\\n}\\r\\n\\r\\n\\/\\/ Call snippet for preparation of form\\r\\n$action = !empty($_SERVER[\'HTTP_X_FETCHIT_ACTION\'])\\r\\n    ? $_SERVER[\'HTTP_X_FETCHIT_ACTION\']\\r\\n    : $action;\\r\\n\\r\\n$FetchIt->process($action, $_REQUEST);\\r\\n\\r\\n\\/\\/ Return chunk\\r\\nreturn $content;","locked":0,"properties":"a:4:{s:4:\\"form\\";a:7:{s:4:\\"name\\";s:4:\\"form\\";s:4:\\"desc\\";s:17:\\"fetchit_prop_form\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:19:\\"tpl.FetchIt.example\\";s:7:\\"lexicon\\";s:18:\\"fetchit:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:7:\\"snippet\\";a:7:{s:4:\\"name\\";s:7:\\"snippet\\";s:4:\\"desc\\";s:20:\\"fetchit_prop_snippet\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:6:\\"FormIt\\";s:7:\\"lexicon\\";s:18:\\"fetchit:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:9:\\"actionUrl\\";a:7:{s:4:\\"name\\";s:9:\\"actionUrl\\";s:4:\\"desc\\";s:22:\\"fetchit_prop_actionUrl\\";s:4:\\"type\\";s:9:\\"textfield\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";s:24:\\"[[+assetsUrl]]action.php\\";s:7:\\"lexicon\\";s:18:\\"fetchit:properties\\";s:4:\\"area\\";s:0:\\"\\";}s:20:\\"clearFieldsOnSuccess\\";a:7:{s:4:\\"name\\";s:20:\\"clearFieldsOnSuccess\\";s:4:\\"desc\\";s:33:\\"fetchit_prop_clearFieldsOnSuccess\\";s:4:\\"type\\";s:13:\\"combo-boolean\\";s:7:\\"options\\";a:0:{}s:5:\\"value\\";b:1;s:7:\\"lexicon\\";s:18:\\"fetchit:properties\\";s:4:\\"area\\";s:0:\\"\\";}}","moduleguid":"","static":0,"static_file":"core\\/components\\/fetchit\\/elements\\/snippets\\/fetchit.php","content":"\\/** @var modX $modx *\\/\\r\\n\\/** @var FetchIt $FetchIt *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\nif (!$modx->loadClass(\'fetchit\', MODX_CORE_PATH . \'components\\/fetchit\\/model\\/\', false, true)) {\\r\\n    return false;\\r\\n}\\r\\n$FetchIt = new FetchIt($modx, $scriptProperties);\\r\\n\\r\\n$snippet = $modx->getOption(\'snippet\', $scriptProperties, \'FormIt\', true);\\r\\n$tpl = $modx->getOption(\'form\', $scriptProperties, \'tpl.FetchIt.example\', true);\\r\\n\\r\\n\\/** @var pdoTools $pdo *\\/\\r\\nif (class_exists(\'pdoTools\') && $pdo = $modx->getService(\'pdoTools\')) {\\r\\n    $content = $pdo->getChunk($tpl, $scriptProperties);\\r\\n} else {\\r\\n    $content = $modx->getChunk($tpl, $scriptProperties);\\r\\n}\\r\\nif (empty($content)) {\\r\\n    return $modx->lexicon(\'fetchit_err_chunk_nf\', array(\'name\' => $tpl));\\r\\n}\\r\\n\\r\\n\\/\\/ Add method = post\\r\\nif (preg_match(\'#<form.*?method=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', $content)) {\\r\\n    $content = preg_replace(\'#<form(.*?)method=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', \'<form\\\\\\\\1method=\\"post\\"\', $content);\\r\\n} else {\\r\\n    $content = str_ireplace(\'<form\', \'<form method=\\"post\\"\', $content);\\r\\n}\\r\\n\\r\\n\\/\\/ Add action for form processing\\r\\n$action = md5(http_build_query($scriptProperties));\\r\\n\\/\\/ Add selector to tag form\\r\\nif (preg_match(\'#<form.*?data-fetchit=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', $content, $matches)) {\\r\\n    $content = preg_replace(\'#<form(.*?)data-fetchit=(?:\\"|\\\\\')(.*?)(?:\\"|\\\\\')#i\', \'<form\\\\\\\\data-fetchit=\\"$action\\"\', $content);\\r\\n} else {\\r\\n    $content = str_ireplace(\'<form\', \'<form data-fetchit=\\"\' . $action . \'\\"\', $content);\\r\\n}\\r\\n\\r\\n$FetchIt->loadScript($action);\\r\\n\\r\\n\\/\\/ Save snippet properties\\r\\nif (!empty(session_id())) {\\r\\n    \\/\\/ ... to user`s session\\r\\n    $_SESSION[\'FetchIt\'][$action] = $scriptProperties;\\r\\n} else {\\r\\n    \\/\\/ ... to cache file\\r\\n    $modx->cacheManager->set(\'fetchit\\/props_\' . $action, $scriptProperties, 3600);\\r\\n}\\r\\n\\r\\n\\/\\/ Call snippet for preparation of form\\r\\n$action = !empty($_SERVER[\'HTTP_X_FETCHIT_ACTION\'])\\r\\n    ? $_SERVER[\'HTTP_X_FETCHIT_ACTION\']\\r\\n    : $action;\\r\\n\\r\\n$FetchIt->process($action, $_REQUEST);\\r\\n\\r\\n\\/\\/ Return chunk\\r\\nreturn $content;","file":"fetchit"}',
+        'guid' => '2ccb1056e09588de72e69dbc71ceea7f',
+        'native_key' => 0,
+        'signature' => '82bb36acaaeb72ceccedb7c13b4c8a41',
+      ),
+    ),
+    'Plugins' => 
+    array (
+      '8459a85461afc9a0ddbb5814b32dff71' => 
+      array (
+        'unique_key' => 'name',
+        'preserve_keys' => false,
+        'update_object' => true,
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            '17140a03e6c1d92b8abcd13c452e5b3e' => 
+            array (
+              'preserve_keys' => true,
+              'update_object' => true,
+              'unique_key' => 
+              array (
+                0 => 'pluginid',
+                1 => 'event',
+              ),
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnWebPagePrerender","priority":0,"propertyset":0}',
+              'guid' => '02e0523dc80c72c77ab61e282ae0b200',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnWebPagePrerender',
+              ),
+              'signature' => '4315babc0c56490b5f215b9013c7d4ef',
+            ),
+          ),
+        ),
+        'related_object_attributes' => 
+        array (
+          'PluginEvents' => 
+          array (
+            'preserve_keys' => true,
+            'update_object' => true,
+            'unique_key' => 
+            array (
+              0 => 'pluginid',
+              1 => 'event',
+            ),
+          ),
+        ),
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":1,"property_preprocess":0,"name":"FetchIt","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"\\/** @var modX $modx *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\n\\/** @var FetchIt $FetchIt *\\/\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnWebPagePrerender\':\\r\\n        if ($FetchIt = $modx->getService(\'FetchIt\', \'FetchIt\', MODX_CORE_PATH . \'components\\/fetchit\\/model\\/\')) {\\r\\n            $FetchIt->registerScript();\\r\\n        }\\r\\n        break;\\r\\n}","locked":0,"properties":null,"disabled":0,"moduleguid":"","static":0,"static_file":"core\\/components\\/fetchit\\/elements\\/plugins\\/fetchit.php","content":"\\/** @var modX $modx *\\/\\r\\n\\/** @var array $scriptProperties *\\/\\r\\n\\/** @var FetchIt $FetchIt *\\/\\r\\n\\r\\nswitch ($modx->event->name) {\\r\\n    case \'OnWebPagePrerender\':\\r\\n        if ($FetchIt = $modx->getService(\'FetchIt\', \'FetchIt\', MODX_CORE_PATH . \'components\\/fetchit\\/model\\/\')) {\\r\\n            $FetchIt->registerScript();\\r\\n        }\\r\\n        break;\\r\\n}","file":"fetchit","events":{"OnWebPagePrerender":[]}}',
+        'guid' => '00fd06f2b0c5da33d0266c6468d5834b',
+        'native_key' => NULL,
+        'signature' => '0131a1562ec763679d164b1431109051',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => false,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'unique_key' => 'name',
+      'preserve_keys' => false,
+      'update_object' => true,
+      'related_objects' => true,
+      'related_object_attributes' => 
+      array (
+        'PluginEvents' => 
+        array (
+          'preserve_keys' => true,
+          'update_object' => true,
+          'unique_key' => 
+          array (
+            0 => 'pluginid',
+            1 => 'event',
+          ),
+        ),
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'fetchit',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"fetchit-1.1.2-pl\\/modCategory\\/989d71651346b231ad7f635a786ea62b\\/0\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"fetchit"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"fetchit-1.1.2-pl\\/modCategory\\/989d71651346b231ad7f635a786ea62b\\/1\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"fetchit"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"fetchit-1.1.2-pl\\/modCategory\\/989d71651346b231ad7f635a786ea62b.setup.resolver","type":"php","name":"setup"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'dd066320a47286911fa2b119de64083d',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '989d71651346b231ad7f635a786ea62b',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"FetchIt","rank":0}',
+);

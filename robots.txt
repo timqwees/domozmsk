@@ -1,0 +1,86 @@
+User-agent: *
+
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /assets/components/*/manager/
+Disallow: /index.php
+
+Disallow: *?*
+Disallow: *utm_
+Disallow: *openstat=
+Disallow: *from=
+Disallow: *yclid=
+Disallow: *gclid=
+Disallow: *phpsessid=
+Disallow: *sessionid=
+
+Allow: *?page=
+Allow: *?sort=
+Allow: *?filter=
+
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.avif$
+Allow: /*.ico$
+
+Allow: /*.pdf$
+Allow: /*.doc$
+Allow: /*.docx$
+Allow: /*.xls$
+Allow: /*.xlsx$
+Allow: /*.ppt$
+Allow: /*.pptx$
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.eot$
+
+Allow: /assets/components/fetchit/
+Allow: /assets/components/minishop2/
+Allow: /assets/components/pdotools/
+
+Allow: /core/cache/phpthumb/*.jpg$
+Allow: /core/cache/phpthumb/*.jpeg$
+Allow: /core/cache/phpthumb/*.png$
+Allow: /core/cache/phpthumb/*.webp$
+Allow: /core/cache/phpthumb/*.svg$
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-AdsBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Host: https://domozmsk.ru
+
+Clean-param: utm_source /
+Clean-param: utm_medium /
+Clean-param: utm_campaign /
+Clean-param: utm_content /
+Clean-param: utm_term /
+Clean-param: yclid /
+Clean-param: gclid /
+Clean-param: openstat /
+Clean-param: from /
+
+Sitemap: https://domozmsk.ru/sitemap.xml

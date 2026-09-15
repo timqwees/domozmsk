@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'ckeditor',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '49772d2b5950771b8c05cb27bede39f8',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '7c3bad8c3c3aba9ec4edd3be568ae9a2',
+  'native_key' => 'ckeditor.native_spellchecker',
+  'object' => '{"key":"ckeditor.native_spellchecker","value":"1","xtype":"combo-boolean","namespace":"ckeditor","area":"general","editedon":null}',
+);

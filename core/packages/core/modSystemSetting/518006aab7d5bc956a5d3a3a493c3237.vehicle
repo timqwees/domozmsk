@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '0d33e5cbb9d4d335a6cb3b015bdbac07',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '518006aab7d5bc956a5d3a3a493c3237',
+  'native_key' => 'editor_css_selectors',
+  'object' => '{"key":"editor_css_selectors","value":"","xtype":"textfield","namespace":"core","area":"editor","editedon":null}',
+);

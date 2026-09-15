@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'moddevtools',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c977910f457513e30c9e888bca6720f9',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'cbf9eae48175b5ad454f31e2b908b686',
+  'native_key' => 'moddevtools.show_breadcrumb_context',
+  'object' => '{"key":"moddevtools.show_breadcrumb_context","value":"0","xtype":"combo-boolean","namespace":"moddevtools","area":"system","editedon":null}',
+);

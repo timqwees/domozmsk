@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'af5a8d7aa44156d5b7002d13d97482cc',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '8f7ff111c38f3af2e6359446f1578cfb',
+  'native_key' => 'context_tree_sort',
+  'object' => '{"key":"context_tree_sort","value":true,"xtype":"combo-boolean","namespace":"core","area":"manager","editedon":null}',
+);

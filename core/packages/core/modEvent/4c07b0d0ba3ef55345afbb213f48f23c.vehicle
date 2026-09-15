@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'ac78819b1615ce7b1ff972fdd6104d8f',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '4c07b0d0ba3ef55345afbb213f48f23c',
+  'native_key' => 'OnSnippetRemove',
+  'object' => '{"name":"OnSnippetRemove","service":1,"groupname":"Snippets"}',
+);

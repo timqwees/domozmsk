@@ -1,0 +1,171 @@
+openapi: 3.0.3
+
+info:
+  title: "Dom Oz API"
+  description: "Official API of Dom Oz landscape company website. Provides access to information about landscaping, landscape design, planting, irrigation, drainage, lighting and garden maintenance services in Moscow and Moscow Region."
+  version: "1.0.0"
+  contact:
+    name: "Dom Oz"
+    url: "https://domozmsk.ru"
+    email: "DOMOZ.77@yandex.ru"
+
+servers:
+  - url: "https://domozmsk.ru/api"
+    description: "Production API"
+
+tags:
+  - name: "Search"
+    description: "Search website content"
+  - name: "Prices"
+    description: "Get current service pricing"
+
+paths:
+  /search:
+    get:
+      tags:
+        - "Search"
+      operationId: "search"
+      summary: "Search website content"
+      description: "Semantic search for relevant information across the Dom Oz website."
+      security:
+        - BotAuth: []
+      parameters:
+        - name: "q"
+          in: "query"
+          required: true
+          description: "Search query"
+          schema:
+            type: "string"
+            minLength: 2
+      responses:
+        '200':
+          description: "Successful search response"
+          headers:
+            Cache-Control:
+              description: "Caching policy for the response"
+              schema:
+                type: "string"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchResponse"
+        '400':
+          description: "Invalid search request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        '500':
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /prices:
+    get:
+      tags:
+        - "Prices"
+      operationId: "getPrices"
+      summary: "Get current service prices"
+      description: "Fetch current pricing for landscaping services (lawn, planting, irrigation, etc.)"
+      security:
+        - BotAuth: []
+      parameters:
+        - name: "service"
+          in: "query"
+          required: false
+          description: "Service category (e.g., lawn, planting, irrigation). If omitted, returns all prices."
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "Successful price list response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PriceResponse"
+        '500':
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    BotAuth:
+      type: "http"
+      scheme: "signature"
+      description: "Web Bot Auth via Ed25519 HTTP Message Signatures"
+      x-jwks-uri: "https://domozmsk.ru/.well-known/jwks.json"
+
+  schemas:
+    SearchResponse:
+      type: "object"
+      required:
+        - "success"
+        - "results"
+      properties:
+        success:
+          type: "boolean"
+          example: true
+        results:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/SearchResult"
+
+    SearchResult:
+      type: "object"
+      properties:
+        title:
+          type: "string"
+          description: "Page title"
+        url:
+          type: "string"
+          format: "uri"
+          description: "Canonical page URL"
+        description:
+          type: "string"
+          description: "Short page description"
+        content:
+          type: "string"
+          description: "Relevant content excerpt"
+
+    PriceResponse:
+      type: "object"
+      required:
+        - "success"
+        - "prices"
+      properties:
+        success:
+          type: "boolean"
+          example: true
+        currency:
+          type: "string"
+          example: "RUB"
+        prices:
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+              price:
+                type: "number"
+              unit:
+                type: "string"
+                example: "м²"
+
+    ErrorResponse:
+      type: "object"
+      required:
+        - "success"
+        - "error"
+      properties:
+        success:
+          type: "boolean"
+          example: false
+        error:
+          type: "string"
+          description: "Error description"

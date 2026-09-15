@@ -1,0 +1,15 @@
+{
+    "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+    "name": "Dom Oz MCP Server",
+    "version": "1.0.0",
+    "transports": {
+        "streamable-http": {
+            "url": "https://domozmsk.ru/mcp"
+        }
+    },
+    "capabilities": {
+        "tools": {},
+        "resources": {}
+    },
+    "description": "MCP-сервер для AI-агентов. Предоставляет инструменты для поиска услуг по ландшафтному дизайну, получения актуальных цен и контактной информации компании \"Дом Оз\" (Москва и МО)."
+}

@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '505a76bfec48a98dbf2d80feeb69975f',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '0632ec097cf0dc1474a2cb1d764d0d13',
+  'native_key' => 'modx_browser_default_viewmode',
+  'object' => '{"key":"modx_browser_default_viewmode","value":"grid","xtype":"textfield","namespace":"core","area":"manager","editedon":null}',
+);

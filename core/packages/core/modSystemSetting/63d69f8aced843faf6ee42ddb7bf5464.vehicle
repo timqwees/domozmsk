@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '43aa79038721748edb37b95fdb78a780',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '63d69f8aced843faf6ee42ddb7bf5464',
+  'native_key' => 'manager_week_start',
+  'object' => '{"key":"manager_week_start","value":0,"xtype":"textfield","namespace":"core","area":"manager","editedon":null}',
+);

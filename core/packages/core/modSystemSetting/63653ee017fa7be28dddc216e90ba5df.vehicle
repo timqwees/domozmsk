@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'fb40e8e48d54ca6caaac59c99ab2b2ec',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '63653ee017fa7be28dddc216e90ba5df',
+  'native_key' => 'package_installer_at_top',
+  'object' => '{"key":"package_installer_at_top","value":true,"xtype":"combo-boolean","namespace":"core","area":"manager","editedon":null}',
+);

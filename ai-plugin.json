@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_model": "domoz",
+    "name_for_humans": "Дом Оз",
+    "description_for_model": "Официальный сайт ООО «Дом Оз» — ландшафтная компания полного цикла в Москве и Московской области. Информация об услугах, благоустройстве территорий, ландшафтном проектировании, озеленении, автоматическом поливе, дренаже, освещении и уходе за участками.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://domozmsk.ru/openapi.yaml"
+    },
+    "llms_txt": "https://domozmsk.ru/llms.txt",
+    "llms_full": "https://domozmsk.ru/llms-full.txt",
+    "logo_url": "https://domozmsk.ru/assets/img/favicon/favicon.svg",
+    "contact_email": "DOMOZ.77@yandex.ru",
+    "legal_info_url": "https://domozmsk.ru/"
+}

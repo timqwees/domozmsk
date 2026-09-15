@@ -1,0 +1,31 @@
+# MODX Revolution — domozmsk
+# Кеш и логи НЕ коммитим: они пересоздаются и содержат абсолютные пути сервера.
+# После git clone / деплоя обязательно очистить core/cache/* вручную.
+core/cache/*
+!core/cache/.gitkeep
+
+# Логи MODX и PHP (в т.ч. core/cache/logs/error.log ~ десятки МБ)
+*.log
+core/cache/logs/*
+
+# Зависимости и сборка
+node_modules/
+dist/
+.sass-cache/
+
+# Системный мусор
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*~
+
+# Локальные переопределения конфига (если появятся)
+core/config/config.local.php
+
+# Временные файлы Timeweb / LET'S ENCRYPT (acme-challenge обновляется сам)
+/.well-known/acme-challenge/*
+
+# !!! ВНИМАНИЕ: core/config/config.inc.php и config.core.php СОДЕРЖАТ ПАРОЛЬ БД
+# и сейчас отслеживаются git по требованию владельца. Репозиторий должен быть
+# PRIVATE. После пуша смените пароль БД в Timeweb и обновите config.inc.php.

@@ -1,0 +1,20 @@
+{
+    "name": "modmore/versionx",
+    "description": "Resource and element versioning for MODX",
+    "license": "mit",
+    "config": {
+        "platform": {
+            "php": "7.4.0"
+        }
+    },
+    "require": {
+        "php": "^7.4 || 8.*",
+        "jfcherng/php-diff": "^6.13",
+        "nesbot/carbon": "^2.66"
+    },
+    "autoload": {
+        "psr-4": {
+            "modmore\\VersionX\\" : "src/"
+        }
+    }
+}

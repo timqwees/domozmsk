@@ -1,0 +1,37 @@
+<?php return array (
+  'class' => 'xPDOFileVehicle',
+  'object' => 
+  array (
+    'source' => 'guzzle7-7.8.1-pl/xPDOFileVehicle/75fd1a5b944238672f251d6f4c87dcc3/',
+    'target' => 'return MODX_CORE_PATH . \'components/\';',
+    'name' => 'guzzle7',
+  ),
+  'abort_install_on_vehicle_fail' => true,
+  'vehicle_class' => 'xPDOFileVehicle',
+  'validate' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"type":"php","source":"guzzle7-7.8.1-pl\\/xPDOFileVehicle\\/75fd1a5b944238672f251d6f4c87dcc3.requirements.script.validator","name":"requirements.script"}',
+    ),
+  ),
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"type":"php","source":"guzzle7-7.8.1-pl\\/xPDOFileVehicle\\/75fd1a5b944238672f251d6f4c87dcc3.composer.resolver.resolver","name":"composer.resolver"}',
+    ),
+    1 => 
+    array (
+      'type' => 'php',
+      'body' => '{"type":"php","source":"guzzle7-7.8.1-pl\\/xPDOFileVehicle\\/75fd1a5b944238672f251d6f4c87dcc3.extension_package.resolver.resolver","name":"extension_package.resolver"}',
+    ),
+  ),
+  'vehicle_package' => 'transport',
+  'guid' => 'fa7aa43e762571590dd3ce2129a50088',
+  'package' => '',
+  'signature' => '75fd1a5b944238672f251d6f4c87dcc3',
+  'native_key' => 'fa7aa43e762571590dd3ce2129a50088',
+);

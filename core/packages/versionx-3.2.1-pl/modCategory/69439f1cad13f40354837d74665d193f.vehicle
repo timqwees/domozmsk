@@ -1,0 +1,34 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => false,
+  'namespace' => 'versionx',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"versionx-3.2.1-pl\\/modCategory\\/69439f1cad13f40354837d74665d193f.composer.resolver.resolver","type":"php","name":"composer.resolver"}',
+    ),
+    1 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"versionx-3.2.1-pl\\/modCategory\\/69439f1cad13f40354837d74665d193f.tables.resolver.resolver","type":"php","name":"tables.resolver"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"versionx-3.2.1-pl\\/modCategory\\/69439f1cad13f40354837d74665d193f.setupoptions.resolver.resolver","type":"php","name":"setupoptions.resolver"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '19b0e36c202ceb2ddb9706430da43dc6',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '69439f1cad13f40354837d74665d193f',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"VersionX","rank":0}',
+);

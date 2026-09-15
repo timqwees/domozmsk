@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '82213400924a45e395d9a978814d8d15',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '2c575cbda1fceb1a6d716e58549867fd',
+  'native_key' => 'OnSnipFormDelete',
+  'object' => '{"name":"OnSnipFormDelete","service":1,"groupname":"Snippets"}',
+);

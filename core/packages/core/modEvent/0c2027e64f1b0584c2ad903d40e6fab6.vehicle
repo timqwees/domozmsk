@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '23c3e986668048eeb26ca6ff85d1dd97',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '0c2027e64f1b0584c2ad903d40e6fab6',
+  'native_key' => 'OnUserChangePassword',
+  'object' => '{"name":"OnUserChangePassword","service":1,"groupname":"Users"}',
+);

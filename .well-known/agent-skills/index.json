@@ -1,0 +1,22 @@
+{
+    "skills": [
+        {
+            "id": "site-search",
+            "name": "Поиск по сайту",
+            "description": "Семантический поиск по всем опубликованным страницам сайта Дом Оз (услуги, статьи блога, цены, контакты)",
+            "url": "https://domozmsk.ru/.well-known/agent-skills/site-search/SKILL.md"
+        },
+        {
+            "id": "price-lookup",
+            "name": "Поиск цен на услуги",
+            "description": "Получение актуальных цен на услуги ландшафтного дизайна и озеленения (газон, посадка деревьев, автополив, освещение и др.)",
+            "url": "https://domozmsk.ru/.well-known/agent-skills/price-lookup/SKILL.md"
+        },
+        {
+            "id": "contact-info",
+            "name": "Контактная информация",
+            "description": "Получение контактных данных компании: телефон, email, адрес офиса в Москве",
+            "url": "https://domozmsk.ru/.well-known/agent-skills/contact-info/SKILL.md"
+        }
+    ]
+}

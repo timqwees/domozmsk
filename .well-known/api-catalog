@@ -1,0 +1,19 @@
+{
+    "linkset": [
+        {
+            "anchor": "https://domozmsk.ru/",
+            "service-desc": [
+                {
+                    "href": "https://domozmsk.ru/openapi.yaml",
+                    "type": "application/yaml"
+                }
+            ],
+            "service-doc": [
+                {
+                    "href": "https://domozmsk.ru/api/docs",
+                    "type": "text/html"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'versionx',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '61e33e0ef6d912cf8ea9274a6a4635a1',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '567647a3d5e1355a3daa69082ffa5fea',
+  'native_key' => 'versionx.custom_type_classes',
+  'object' => '{"key":"versionx.custom_type_classes","value":"","xtype":"textfield","namespace":"versionx","area":"Custom Objects","editedon":1760025367}',
+);

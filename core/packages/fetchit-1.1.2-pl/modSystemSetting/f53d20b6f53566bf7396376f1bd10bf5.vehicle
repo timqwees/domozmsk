@@ -1,0 +1,17 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'related_objects' => false,
+  'namespace' => 'fetchit',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '6b85dc2481ea248915b96e2e7a747985',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'f53d20b6f53566bf7396376f1bd10bf5',
+  'native_key' => 'fetchit.frontend.default.notifier',
+  'object' => '{"key":"fetchit.frontend.default.notifier","value":0,"xtype":"combo-boolean","namespace":"fetchit","area":"fetchit_main","editedon":null}',
+);

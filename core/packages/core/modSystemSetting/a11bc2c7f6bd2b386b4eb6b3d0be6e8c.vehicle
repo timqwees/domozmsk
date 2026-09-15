@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a715a8c2114337c21da2b043f68ce47f',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'a11bc2c7f6bd2b386b4eb6b3d0be6e8c',
+  'native_key' => 'upload_check_exists',
+  'object' => '{"key":"upload_check_exists","value":"1","xtype":"combo-boolean","namespace":"core","area":"file","editedon":null}',
+);
