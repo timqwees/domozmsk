@@ -5,7 +5,7 @@
 $database_type = 'mysql';
 $database_server = 'localhost';
 $database_user = 'cg496041_domozms';
-$database_password = '2q3rX2Dv';
+$database_password = '47OSh?ph!a?T';
 $database_connection_charset = 'utf8mb4';
 $dbase = 'cg496041_domozms';
 $table_prefix = 'modx_';
