@@ -857,3 +857,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
+
+/* --- Тип трафика во все формы: РЕКЛАМА / ОРГАНИКА / ПРЯМОЙ --- */
+(function () {
+    function badge() {
+        var q = {};
+        try {
+            window.location.search.substring(1).split('&').forEach(function (p) {
+                var kv = p.split('=');
+                if (kv[0]) { q[decodeURIComponent(kv[0]).toLowerCase()] = decodeURIComponent(kv[1] || ''); }
+            });
+        } catch (e) {}
+        // first-touch: paid-метки запоминаем на сессию (заявка может быть не с первой страницы)
+        try {
+            if ((q['utm_source'] || '') !== '' || (q['yclid'] || '') !== '' || (q['gclid'] || '') !== '') {
+                sessionStorage.setItem('dz_traffic', 'РЕКЛАМА');
+            }
+            if (sessionStorage.getItem('dz_traffic') === 'РЕКЛАМА') return 'РЕКЛАМА';
+        } catch (e) {}
+        if ((q['utm_source'] || '').trim() !== '' || (q['yclid'] || '') !== '' || (q['gclid'] || '') !== '') return 'РЕКЛАМА';
+        var ref = document.referrer || '';
+        var refHost = '';
+        try { refHost = ref ? new URL(ref).hostname : ''; } catch (e) {}
+        if (ref !== '' && refHost !== '' && refHost !== window.location.hostname) return 'ОРГАНИКА / РЕФЕРАЛ';
+        return 'ПРЯМОЙ / ОРГАНИКА';
+    }
+    function stamp() {
+        var b = badge();
+        document.querySelectorAll('form').forEach(function (f) {
+            if (f.querySelector('input[name="Тип трафика"]')) return;
+            var h = document.createElement('input');
+            h.type = 'hidden'; h.name = 'Тип трафика'; h.value = b;
+            f.appendChild(h);
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', stamp);
+    else stamp();
+})();
