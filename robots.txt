@@ -68,6 +68,12 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
