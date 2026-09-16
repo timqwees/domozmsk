@@ -123,9 +123,16 @@ class FetchIt
      */
     public function process($action, array $fields = array())
     {
+        // Сессия первична (свежий рендер), кеш — фолбэк для хитов кеша страниц,
+        // когда сниппет не исполнялся и в сессию ничего не записалось.
+        // (Фикс: при включённых anonymous_sessions без фолбэка ломались все
+        // отправки с кешированных страниц — fetchit_err_action_nf.)
         $scriptProperties = !empty(session_id())
             ? @$_SESSION['FetchIt'][$action]
-            : $this->modx->cacheManager->get('fetchit/props_' . $action);
+            : null;
+        if (empty($scriptProperties)) {
+            $scriptProperties = $this->modx->cacheManager->get('fetchit/props_' . $action);
+        }
 
         if (empty($scriptProperties)) {
             return $this->error('fetchit_err_action_nf');

@@ -38,14 +38,14 @@ if (preg_match('#<form.*?data-fetchit=(?:"|\')(.*?)(?:"|\')#i', $content, $match
 
 $FetchIt->loadScript($action);
 
-// Save snippet properties
+// Save snippet properties: в сессию (если есть) И в кеш (фолбэк для хитов,
+// когда сниппет не исполняется, а отправка идёт из уже открытой страницы).
 if (!empty(session_id())) {
     // ... to user`s session
     $_SESSION['FetchIt'][$action] = $scriptProperties;
-} else {
-    // ... to cache file
-    $modx->cacheManager->set('fetchit/props_' . $action, $scriptProperties, 3600);
 }
+// ... always to cache file (TTL 3600)
+$modx->cacheManager->set('fetchit/props_' . $action, $scriptProperties, 3600);
 
 // Call snippet for preparation of form
 $action = !empty($_SERVER['HTTP_X_FETCHIT_ACTION'])
