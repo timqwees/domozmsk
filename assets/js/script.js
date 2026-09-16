@@ -894,3 +894,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', stamp);
     else stamp();
 })();
+
+/* --- Редирект на /thanks после успешной отправки любой FetchIt-формы --- */
+document.addEventListener('fetchit:success', function () {
+    setTimeout(function () {
+        window.location.href = '/thanks';
+    }, 900);
+});
