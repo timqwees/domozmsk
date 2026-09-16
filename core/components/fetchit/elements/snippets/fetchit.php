@@ -52,7 +52,28 @@ $action = !empty($_SERVER['HTTP_X_FETCHIT_ACTION'])
     ? $_SERVER['HTTP_X_FETCHIT_ACTION']
     : $action;
 
-$FetchIt->process($action, $_REQUEST);
+$response = $FetchIt->process($action, $_REQUEST);
+
+// PRG для нативного POST (без JS/AJAX): после успешной отправки уводим
+// 303-редиректом на чистый URL, чтобы F5 не спрашивал повторную отправку.
+// AJAX-вызовы (action.php, заголовок X-FetchIt-Action) не трогаем.
+if (!empty($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST'
+    && empty($_SERVER['HTTP_X_FETCHIT_ACTION'])
+) {
+    $ok = false;
+    if (is_array($response)) {
+        $ok = !empty($response['success']);
+    } elseif (is_string($response)) {
+        $decoded = json_decode($response, true);
+        $ok = is_array($decoded) && !empty($decoded['success']);
+    }
+    if ($ok && $modx->resource instanceof modResource) {
+        $url = $modx->makeUrl($modx->resource->get('id'), '', '', 'full');
+        $modx->sendRedirect($url, array('responseCode' => 'HTTP/1.1 303 See Other'));
+        @session_write_close();
+        exit();
+    }
+}
 
 // Return chunk
 return $content;
