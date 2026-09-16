@@ -1,0 +1,419 @@
+<main id="main-content" tabindex="-1">
+<section class="tool-hero tool-hero--robots-checker reveal visible">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="card">
+    <h1 class="tool-title">
+      <span class="tool-icon" aria-hidden="true"><svg width="22" height="22" class="icon icon--bot" aria-hidden="true" focusable="false"><use href="#icon-bot"></use></svg></span>
+      Проверка robots.txt: валидатор и тестер URL    </h1>
+    <p class="tool-desc">Синтаксис, правила обхода, карты сайта — и проверка, закрыт ли конкретный URL для конкретного бота. На любом сайте, без подтверждения прав.</p>
+<div class="tldr"><strong>Коротко:</strong> <p>Проверка robots.txt — парсер читает файл, показывает, какие User-agent разрешены/запрещены, выделяет типичные ошибки (неправильный синтаксис, блокировка важных путей, CSS/JS в Disallow). Проверяет правильность sitemap-ссылок и Clean-param директивы для Яндекса.</p></div>
+
+    <div id="quota-data" hidden="" data-limit="50" data-remaining="50" data-used="0" data-upgrade="/pricing"></div>
+        <form id="robotsForm" class="robots-form" method="post" autocomplete="off" data-no-progress="1">
+      <input type="hidden" name="_token" value="71e2a341c201f8780f7226c8d9967863b01ebe939c0ce80c9bb5246c13ec7a11">
+      <div class="form-row">
+        <div class="input-wrap input-wrap--domain">
+          <label for="robotsHost" class="sr-only">Domain</label>
+          <input type="text" id="robotsHost" name="domain" class="input" placeholder="example.com" inputmode="url" required="" autofocus="">
+        </div>
+        <button type="submit" class="btn btn-primary" id="robotsBtn">
+          <span class="btn-text">Проверить</span>
+          <span class="btn-spinner spinner hidden"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="robots-results" id="robotsResults"><div class="export-bar"><button class="export-btn" id="robotsExportJson">JSON</button><button class="export-btn share-btn" id="shareResult" title="Поделиться результатом"><svg width="15" height="15" class="icon icon--link-2" aria-hidden="true" focusable="false"><use href="#icon-link-2"></use></svg> Поделиться</button></div>
+  <div class="card">
+    <h2 class="result-title" id="robotsDomain">domozmsk.ru</h2>
+
+    <!-- Status -->
+    <div id="robotsStatus"><div class="robots-status status-found"><span class="status-icon">✓</span><span>robots.txt найден</span><span class="status-size">1428 байт</span><span class="status-host">Директива Host: domozmsk.ru</span></div></div>
+
+    <!-- AI bot policy first-class verdict (S6 spec H1, 2026-05-25) -->
+    <div id="robotsAiBotPolicy"><h3 class="section-label">Политика AI-ботов</h3><p class="ai-bot-policy-summary">Разрешено: 5 · Заблокировано: 0 · Не упомянуто: 7 (из 12)</p><div class="ai-bot-policy-grid"><div class="ai-bot-card ai-bot-card--allowed"><div class="ai-bot-card__icon" aria-hidden="true">✓</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">GPTBot<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Разрешён</div><div class="ai-bot-card__why">Bot block exists with no Disallow rules — fully allowed</div></div></div><div class="ai-bot-card ai-bot-card--allowed"><div class="ai-bot-card__icon" aria-hidden="true">✓</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">OAI-SearchBot<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Разрешён</div><div class="ai-bot-card__why">Bot block exists with no Disallow rules — fully allowed</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">ChatGPT-User<span class="ai-bot-card__vendor">OpenAI</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--allowed"><div class="ai-bot-card__icon" aria-hidden="true">✓</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">ClaudeBot<span class="ai-bot-card__vendor">Anthropic</span></div><div class="ai-bot-card__status">Разрешён</div><div class="ai-bot-card__why">Bot block exists with no Disallow rules — fully allowed</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">anthropic-ai<span class="ai-bot-card__vendor">Anthropic</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--allowed"><div class="ai-bot-card__icon" aria-hidden="true">✓</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Google-Extended<span class="ai-bot-card__vendor">Google</span></div><div class="ai-bot-card__status">Разрешён</div><div class="ai-bot-card__why">Bot block exists with no Disallow rules — fully allowed</div></div></div><div class="ai-bot-card ai-bot-card--allowed"><div class="ai-bot-card__icon" aria-hidden="true">✓</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">PerplexityBot<span class="ai-bot-card__vendor">Perplexity</span></div><div class="ai-bot-card__status">Разрешён</div><div class="ai-bot-card__why">Bot block exists with no Disallow rules — fully allowed</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">CCBot<span class="ai-bot-card__vendor">Common Crawl</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Applebot-Extended<span class="ai-bot-card__vendor">Apple</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Bytespider<span class="ai-bot-card__vendor">Bytedance</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">cohere-ai<span class="ai-bot-card__vendor">Cohere</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div><div class="ai-bot-card ai-bot-card--not_mentioned"><div class="ai-bot-card__icon" aria-hidden="true">—</div><div class="ai-bot-card__body"><div class="ai-bot-card__name">Diffbot<span class="ai-bot-card__vendor">Diffbot</span></div><div class="ai-bot-card__status">Не упомянут</div><div class="ai-bot-card__why">Bot not mentioned in robots.txt; will follow wildcard rules (typically permissive)</div></div></div></div></div>
+
+    <!-- Parsed rules per user-agent -->
+    <div id="robotsBotCoverage" class="robots-bots-panel"><h3 class="section-label bots-section-label">Покрытие ботов<span class="bots-legend"><span class="legend-item legend-explicit"><span class="legend-dot"></span>Прописан</span><span class="legend-item legend-wildcard"><span class="legend-dot"></span>Через *</span><span class="legend-item legend-none"><span class="legend-dot"></span>Не задан</span></span></h3><div class="bots-group"><div class="bots-group-lbl">Поисковые системы</div><div class="bots-grid"><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#4285F4;font-size:9px">G</span><span class="bot-label">Google</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="Googlebot" title="Googlebot" aria-label="How to configure Googlebot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#CC0000;font-size:9px">Y</span><span class="bot-label">Yandex</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="YandexBot" title="YandexBot" aria-label="How to configure YandexBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#0078D4;font-size:9px">B</span><span class="bot-label">Bing</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="bingbot" title="bingbot" aria-label="How to configure bingbot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#DE5833;font-size:9px">D</span><span class="bot-label">DuckDuckGo</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="DuckDuckBot" title="DuckDuckBot" aria-label="How to configure DuckDuckBot">?</button></div></div></div><div class="bots-group"><div class="bots-group-lbl">AI и SEO-боты</div><div class="bots-grid"><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#10A37F;font-size:7px">GP</span><span class="bot-label">ChatGPT</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="GPTBot" title="GPTBot" aria-label="How to configure GPTBot">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#D97756;font-size:7px">Cl</span><span class="bot-label">Claude</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="ClaudeBot" title="ClaudeBot" aria-label="How to configure ClaudeBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#C87040;font-size:7px">An</span><span class="bot-label">Anthropic</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="anthropic-ai" title="anthropic-ai" aria-label="How to configure anthropic-ai">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#0FA570;font-size:7px">GU</span><span class="bot-label">ChatGPT Browse</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="ChatGPT-User" title="ChatGPT-User" aria-label="How to configure ChatGPT-User">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#8B5CF6;font-size:7px">GA</span><span class="bot-label">Google AI</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="Google-Extended" title="Google-Extended" aria-label="How to configure Google-Extended">?</button></div><div class="bot-pill bot-state-explicit"><span class="bot-icon" style="background:#1FB8CD;font-size:7px">Px</span><span class="bot-label">Perplexity</span><span class="bot-status bot-icon-explicit">✓</span><button type="button" class="bot-help-btn" data-ua="PerplexityBot" title="PerplexityBot" aria-label="How to configure PerplexityBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#1877F2;font-size:7px">Me</span><span class="bot-label">Meta AI</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="Meta-ExternalAgent" title="Meta-ExternalAgent" aria-label="How to configure Meta-ExternalAgent">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#2D2D2D;font-size:7px">Bt</span><span class="bot-label">ByteDance</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="Bytespider" title="Bytespider" aria-label="How to configure Bytespider">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#FF6220;font-size:7px">Se</span><span class="bot-label">SEMrush</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="SemrushBot" title="SemrushBot" aria-label="How to configure SemrushBot">?</button></div><div class="bot-pill bot-state-wildcard"><span class="bot-icon" style="background:#0F6FFF;font-size:7px">Ah</span><span class="bot-label">Ahrefs</span><span class="bot-status bot-icon-wildcard">~</span><button type="button" class="bot-help-btn" data-ua="AhrefsBot" title="AhrefsBot" aria-label="How to configure AhrefsBot">?</button></div></div></div></div><div id="robotsRules"><h3 class="section-label">Разобранные правила</h3><div class="ua-block"><div class="ua-header"><span class="ua-name">*</span></div><table class="rules-table"><tbody><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/manager/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/core/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/connectors/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/assets/components/*/manager/</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">/index.php</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*?*</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*utm_</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*openstat=</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*from=</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*yclid=</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*gclid=</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*phpsessid=</td></tr><tr class="rule-disallow"><td class="rule-type">disallow</td><td class="rule-path">*sessionid=</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">*?page=</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">*?sort=</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">*?filter=</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.jpg$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.jpeg$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.gif$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.png$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.webp$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.svg$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.avif$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.ico$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.pdf$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.doc$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.docx$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.xls$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.xlsx$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.ppt$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.pptx$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.css$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.js$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.woff$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.woff2$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.ttf$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/*.eot$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/assets/components/fetchit/</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/assets/components/minishop2/</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/assets/components/pdotools/</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/core/cache/phpthumb/*.jpg$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/core/cache/phpthumb/*.jpeg$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/core/cache/phpthumb/*.png$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/core/cache/phpthumb/*.webp$</td></tr><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/core/cache/phpthumb/*.svg$</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">OAI-SearchBot</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">GPTBot</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">OAI-AdsBot</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">ClaudeBot</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">PerplexityBot</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr></tbody></table></div><div class="ua-block"><div class="ua-header"><span class="ua-name">Google-Extended</span></div><table class="rules-table"><tbody><tr class="rule-allow"><td class="rule-type">allow</td><td class="rule-path">/</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">utm_source /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">utm_medium /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">utm_campaign /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">utm_content /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">utm_term /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">yclid /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">gclid /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">openstat /</td></tr><tr class="rule-other"><td class="rule-type">clean-param</td><td class="rule-path">from /</td></tr></tbody></table></div></div>
+
+    <!-- Sitemaps -->
+    <div id="robotsSitemaps"><h3 class="section-label">Карты сайта</h3><div class="sitemap-health-summary" aria-label="Состояние карт сайта"><span class="sm-chip sm-chip-total">Состояние карт сайта: 1</span><span class="sm-chip sm-chip-stale">1 устарел (&gt;30 дн.)</span></div><div class="sitemap-cards"><div class="sitemap-card sitemap-ok"><div class="sitemap-url">https://domozmsk.ru/sitemap.xml</div><div class="sitemap-meta"><span class="sitemap-status-icon">✓</span><span>Доступен</span> <span class="sitemap-http">HTTP 200</span> <span class="sitemap-ct">text/xml; charset=UTF-8</span></div><div class="sitemap-freshness"><span class="sitemap-badge sitemap-badge-stale">Устарел (&gt;30 дн.)</span><span class="sitemap-lastmod">Изменён: 2026-05-31</span></div></div></div></div>
+
+    <!-- Warnings & Errors -->
+    <div id="robotsWarnings"><h3 class="section-label">Предупреждения</h3><div class="alert-list alert-warnings"><div class="alert-item alert-warn">⚠ Sitemap https://domozmsk.ru/sitemap.xml was last modified &gt; 30 days ago — search engines may consider the index stale</div></div></div>
+    <div id="robotsErrors"></div>
+
+    <!-- URL Tester -->
+    <div class="url-tester" id="urlTester">
+      <h3 class="section-label">Проверка URL</h3>
+      <div class="url-tester-form">
+        <select id="urlTesterUa" class="input input--select"><option value="*">Все боты (*)</option><option value="OAI-SearchBot">OAI-SearchBot</option><option value="GPTBot">GPTBot</option><option value="OAI-AdsBot">OAI-AdsBot</option><option value="ClaudeBot">ClaudeBot</option><option value="PerplexityBot">PerplexityBot</option><option value="Google-Extended">Google-Extended</option></select>
+        <input type="text" id="urlTesterPath" class="input" placeholder="/admin/page.html">
+        <button type="button" class="btn btn-secondary" id="urlTesterBtn">Проверить</button>
+      </div>
+      <div id="urlTesterResult"></div>
+    </div>
+
+    <!-- Raw robots.txt -->
+    <details class="robots-raw-wrap">
+      <summary>Показать robots.txt</summary><div id="robotsRawActions" class="robots-raw-actions"><button type="button" class="btn-raw-action btn-raw-copy" id="robotsCopyBtn">Копировать</button><button type="button" class="btn-raw-action btn-raw-edit" id="robotsEditBtn">Редактировать</button></div>
+      <pre class="robots-raw" id="robotsRaw"><span class="hl-useragent">User-agent</span>:<span class="hl-value"> *</span>
+<span class="hl-comment"></span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /manager/</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /core/</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /connectors/</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /assets/components/*/manager/</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> /index.php</span>
+<span class="hl-comment"></span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *?*</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *utm_</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *openstat=</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *from=</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *yclid=</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *gclid=</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *phpsessid=</span>
+<span class="hl-disallow">Disallow</span>:<span class="hl-value"> *sessionid=</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> *?page=</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> *?sort=</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> *?filter=</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.jpg$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.jpeg$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.gif$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.png$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.webp$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.svg$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.avif$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.ico$</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.pdf$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.doc$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.docx$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.xls$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.xlsx$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.ppt$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.pptx$</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.css$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.js$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.woff$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.woff2$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.ttf$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /*.eot$</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /assets/components/fetchit/</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /assets/components/minishop2/</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /assets/components/pdotools/</span>
+<span class="hl-comment"></span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /core/cache/phpthumb/*.jpg$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /core/cache/phpthumb/*.jpeg$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /core/cache/phpthumb/*.png$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /core/cache/phpthumb/*.webp$</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /core/cache/phpthumb/*.svg$</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> OAI-SearchBot</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> GPTBot</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> OAI-AdsBot</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> ClaudeBot</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> PerplexityBot</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-useragent">User-agent</span>:<span class="hl-value"> Google-Extended</span>
+<span class="hl-allow">Allow</span>:<span class="hl-value"> /</span>
+<span class="hl-comment"></span>
+<span class="hl-meta">Host</span>:<span class="hl-value"> domozmsk.ru</span>
+<span class="hl-comment"></span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> utm_source /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> utm_medium /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> utm_campaign /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> utm_content /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> utm_term /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> yclid /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> gclid /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> openstat /</span>
+<span class="hl-other">Clean-param</span>:<span class="hl-value"> from /</span>
+<span class="hl-comment"></span>
+<span class="hl-sitemap">Sitemap</span>:<span class="hl-value"> https://domozmsk.ru/sitemap.xml</span>
+</pre>
+    </details>
+  </div>
+</section>
+
+<div id="aiRobotsCheckerSummary" class="" aria-live="polite"><div class="ai-summary ai-summary--quota"><span class="ai-summary__nudge">Лимит AI-резюме исчерпан (10/день). <a href="/register?utm_source=ai_quota&amp;utm_medium=internal&amp;utm_campaign=ambient_cta">Регистрация</a> поднимает его до 50 в день.</span></div></div>
+
+<section class="tool-subscribe" id="toolSubscribe" data-source="tool:robots-checker">
+  <div class="tool-subscribe__inner">
+    <div class="tool-subscribe__copy">
+      <h3 class="tool-subscribe__title">
+                  Хотите дайджест раз в неделю?              </h3>
+      <p class="tool-subscribe__lede">
+                  Оставьте email — раз в неделю письмо с тем, что мы опубликовали. Перепроверку по этому инструменту пока не делаем.              </p>
+    </div>
+    <form class="tool-subscribe__form" id="toolSubscribeForm" novalidate="">
+      <label for="toolSubscribeEmail" class="visually-hidden">Электронная почта</label>
+      <input type="email" id="toolSubscribeEmail" name="email" required="" autocomplete="email" inputmode="email" placeholder="you@company.com" class="input tool-subscribe__input" maxlength="255">
+      <!-- Honeypot: real users never see or fill. Bots that fill every input get caught. -->
+      <input type="text" name="website" class="tool-subscribe__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="btn btn-primary tool-subscribe__submit">
+                  Подписаться              </button>
+    </form>
+    <p class="tool-subscribe__msg tool-subscribe__msg--hidden" id="toolSubscribeMsg" role="status" aria-live="polite"></p>
+    <p class="tool-subscribe__fineprint">
+      Отписаться — одним кликом из любого письма. Никому не передаём адрес. Подписываясь, соглашаетесь с <a href="/privacy">политикой конфиденциальности</a>.    </p>
+  </div>
+</section>
+<!-- Error -->
+<div class="robots-error hidden" id="robotsError">
+  <div class="card card-error">
+    <p id="robotsErrorMsg"></p>
+  </div>
+</div>
+
+<!-- Loading -->
+<div class="robots-loading hidden" id="robotsLoading">
+  <div class="card">
+    <div class="loader-bar"></div>
+    <p class="loader-text">Проверяем robots.txt...</p>
+  </div>
+</div>
+
+<!-- Info section -->
+
+
+<section class="seo-section">
+  <h2>Проверка robots.txt</h2>
+  <p>Инструмент анализирует файл robots.txt вашего сайта, который управляет доступом поисковых роботов к страницам. Проверяются правила для всех user-agent, директивы Allow/Disallow, Crawl-delay, ссылки на Sitemap. Некорректный robots.txt может привести к деиндексации важных страниц или открытию служебных разделов.</p>
+  <p>Частые ошибки в robots.txt: блокировка CSS/JS файлов (ломает рендеринг для Google), отсутствие директивы Sitemap, Allow/Disallow без начального слеша и конфликтующие правила для одного пути. Наш валидатор находит эти проблемы и показывает, какие URL заблокированы для каждого User-Agent.</p>
+  <p>Всегда тестируйте изменения robots.txt перед деплоем — одна опечатка может деиндексировать весь сайт. После валидации проверьте <a href="/broken-links">битые ссылки</a>, чтобы заблокированные страницы не ссылались из активного контента. Проверьте <a href="/security">заголовки безопасности</a> для защиты чувствительных путей.</p></section>
+<div class="edu-blocks-wrap">
+<section class="edu-section">
+  <div class="edu-info-strip">
+    <div class="edu-info-item">
+      <div class="edu-info-icon"><i class="ph-fill ph-robot icon-purple"></i></div>
+      <div><strong>robots.txt парсинг</strong><span>Полный разбор директив Allow/Disallow</span></div>
+    </div>
+    <div class="edu-info-item">
+      <div class="edu-info-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
+      <div><strong>URL тест</strong><span>Разрешён ли конкретный URL для бота</span></div>
+    </div>
+    <div class="edu-info-item">
+      <div class="edu-info-icon"><i class="ph-fill ph-plugs icon-cyan"></i></div>
+      <div><strong>Sitemap-ссылки</strong><span>Все Sitemap: директивы в файле</span></div>
+    </div>
+    <div class="edu-info-item">
+      <div class="edu-info-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
+      <div><strong>AI-краулеры</strong><span>GPTBot, ClaudeBot и другие AI-боты</span></div>
+    </div>
+  </div>
+</section>
+<section class="edu-section">
+  <div class="edu-header"><h2>Почему нам доверяют</h2></div>
+  <div class="trust-strip">
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon"><i class="ph-fill ph-robot icon-purple"></i></div>
+      <div class="trust-strip__value">Live</div>
+      <div class="trust-strip__label">проверка robots.txt</div>
+    </div>
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
+      <div class="trust-strip__value">UA</div>
+      <div class="trust-strip__label">любой User-Agent</div>
+    </div>
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon"><i class="ph-fill ph-lock-key icon-purple"></i></div>
+      <div class="trust-strip__value">Sitemap</div>
+      <div class="trust-strip__label">ссылки на sitemap</div>
+    </div>
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon"><i class="ph-fill ph-flag icon-muted"></i></div>
+      <div class="trust-strip__value">Free</div>
+      <div class="trust-strip__label">без регистрации</div>
+    </div>
+  </div>
+</section>
+<section class="edu-section">
+  <div class="edu-header"><h2>Как это работает</h2></div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-step__num">1</div>
+      <div class="how-step__icon"><i class="ph-fill ph-pencil-simple icon-cyan"></i></div>
+      <h3 class="how-step__title">Введите URL сайта</h3>
+    </div>
+    <div class="how-step">
+      <div class="how-step__num">2</div>
+      <div class="how-step__icon"><i class="ph-fill ph-file-text icon-blue"></i></div>
+      <h3 class="how-step__title">Парсим robots.txt</h3>
+    </div>
+    <div class="how-step">
+      <div class="how-step__num">3</div>
+      <div class="how-step__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
+      <h3 class="how-step__title">Проверьте правила краулинга</h3>
+    </div>
+  </div>
+</section>
+<section class="edu-section">
+  <div class="edu-header">
+    <h2>Зачем проверять robots.txt?</h2>
+    <p>robots.txt управляет тем, какие страницы видят поисковые боты. Неправильные директивы могут случайно закрыть весь сайт от индексации или, наоборот, открыть административные разделы.</p>
+  </div>
+  <div class="edu-feature-grid">
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
+      <h3>Полный парсинг</h3>
+      <p>Парсим robots.txt по RFC 9309: все User-agent, Allow/Disallow, Crawl-delay, Sitemap.</p>
+    </div>
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-magnifying-glass-plus icon-cyan"></i></div>
+      <h3>URL-тестер</h3>
+      <p>Введите путь и выберите User-agent — получите вердикт «разрешено / заблокировано» и <b>саму строку правила</b>, которая сработала. Работает на любом домене, подтверждать права не нужно.</p>
+    </div>
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-brain icon-purple"></i></div>
+      <h3>AI-краулеры</h3>
+      <p>Автоматически показываем статус для GPTBot, ClaudeBot, PerplexityBot, Googlebot.</p>
+    </div>
+    <div class="edu-feature-card">
+      <div class="edu-feature-icon"><i class="ph-fill ph-map-trifold icon-cyan"></i></div>
+      <h3>Sitemap-список</h3>
+      <p>Все Sitemap: директивы в одном месте с быстрыми ссылками для проверки.</p>
+    </div>
+  </div>
+</section>
+<section class="edu-section">
+  <div class="edu-header"><h2>Кому это нужно</h2></div>
+  <div class="use-cases-grid">
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-magnifying-glass icon-cyan"></i></div>
+      <h3 class="use-case-card__title">SEO-специалисты</h3>
+      <p class="use-case-card__sub">аудит краулинг-директив</p>
+    </div>
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-desktop icon-blue"></i></div>
+      <h3 class="use-case-card__title">Разработчики</h3>
+      <p class="use-case-card__sub">проверка после деплоя</p>
+    </div>
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-shopping-bag icon-yellow"></i></div>
+      <h3 class="use-case-card__title">Маркетологи</h3>
+      <p class="use-case-card__sub">контроль индексации</p>
+    </div>
+    <div class="use-case-card">
+      <div class="use-case-card__icon"><i class="ph-fill ph-robot icon-purple"></i></div>
+      <h3 class="use-case-card__title">Владельцы сайтов</h3>
+      <p class="use-case-card__sub">защита от нежелательных краулеров</p>
+    </div>
+  </div>
+</section>
+<section class="edu-section">
+  <div class="edu-two-col">
+    <div class="edu-mistakes-block">
+      <h2>Частые ошибки</h2>
+      <div class="edu-list">
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
+          <div><strong>Disallow: / для всего сайта</strong><span>Это закрывает весь сайт от индексации. Проверяйте robots.txt после каждого изменения.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
+          <div><strong>Блокировать AI без понимания</strong><span>Блокировка GPTBot лишает ваш сайт цитирований в ChatGPT и Perplexity.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
+          <div><strong>Не указывать Sitemap</strong><span>Без Sitemap: директивы боты должны угадывать URL ситемапа. Всегда указывайте явно.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--bad"><svg width="15" height="15" class="icon icon--x" aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg></span>
+          <div><strong>Конфликтующие правила</strong><span>Allow и Disallow на одни URL у разных User-agent создают непредсказуемое поведение.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-practices-block">
+      <h2>Лучшие практики</h2>
+      <div class="edu-list">
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
+          <div><strong>Тестируйте после каждого изменения</strong><span>Один неверный символ в robots.txt может закрыть весь раздел от индексации.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
+          <div><strong>Используйте * осторожно</strong><span><code>User-agent: *</code> распространяется на всех ботов, включая AI-краулеров.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
+          <div><strong>Всегда указывайте Sitemap</strong><span><code>Sitemap: https://example.com/sitemap.xml</code> помогает ботам найти все страницы.</span></div>
+        </div>
+        <div class="edu-list-item">
+          <span class="edu-list-icon edu-list-icon--good"><svg width="15" height="15" class="icon icon--check" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg></span>
+          <div><strong>Знайте, чего Search Console уже не делает</strong><span>Отчёт robots.txt в Search Console показывает, какие файлы нашёл Google, когда обошёл их и какие увидел ошибки, — но <b>не проверяет отдельные URL</b>. За этим справка Google отправляет в инструмент проверки URL, а он работает только для сайта, права на который вы подтвердили, и от лица собственного краулера Google. Проверить чужой сайт или поведение YandexBot, GPTBot и ClaudeBot там нельзя — для этого нужен внешний тестер вроде этого.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page-cta">
+  <h2 class="page-cta__title">Получите больше с бесплатным аккаунтом</h2>
+  <p class="page-cta__desc">История проверок robots.txt и мониторинг его изменений на вашем сайте.</p>
+  <a class="page-cta__btn" href="/register">Зарегистрироваться (FREE)</a>
+</section>
+</div>
+<section class="related-tools"><div class="wrap"><h2 class="related-tools__title">Связанные инструменты</h2><div class="related-tools__grid"><a href="/speed" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-lightning icon-yellow"></i></span><span class="related-tool-card__name">PageSpeed</span></a><a href="/broken-links" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-link-break icon-yellow"></i></span><span class="related-tool-card__name">Битые ссылки</span></a><a href="/security" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-shield-check icon-purple"></i></span><span class="related-tool-card__name">Безопасность</span></a><a href="/ai-check" class="related-tool-card"><span class="related-tool-card__icon"><i class="ph-fill ph-sparkle icon-purple"></i></span><span class="related-tool-card__name">AI-проверка</span></a></div></div></section><div class="wrap"><section class="tool-seo-learn"><h2 class="tool-seo-learn__title">Больше по теме</h2><div class="tool-seo-learn__grid"><div class="tool-seo-learn__col"><h3 class="tool-seo-learn__col-title">Глоссарий</h3><ul class="tool-seo-learn__list"><li><a href="/s/glossary-sitemap-xml">sitemap.xml: определение и применение</a></li><li><a href="/s/glossary-indexnow">IndexNow: определение и применение</a></li></ul></div></div></section></div><section class="faq-section">
+  <h2>Часто задаваемые вопросы</h2>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Что такое robots.txt?</summary><p>robots.txt — текстовый файл в корне сайта, указывающий поисковым роботам, какие страницы можно или нельзя индексировать. Это рекомендация, а не принудительная блокировка — недобросовестные боты могут его игнорировать.</p></details>
+    <details class="faq-item"><summary>Чем robots.txt отличается от meta robots?</summary><p>robots.txt блокирует краулинг (робот не зайдёт на страницу). Meta robots (noindex) блокирует индексацию (робот зайдёт, но не добавит в индекс). Для полной блокировки нужны оба. Если robots.txt блокирует страницу, робот не увидит meta noindex.</p></details>
+    <details class="faq-item"><summary>Как правильно указать Sitemap в robots.txt?</summary><p>Добавьте строку Sitemap: https://example.com/sitemap.xml в конец файла. URL должен быть абсолютным. Можно указать несколько sitemap. Это помогает роботам быстрее найти карту сайта.</p></details>
+    <details class="faq-item"><summary>Что такое Crawl-delay?</summary><p>Crawl-delay — директива robots.txt, задающая паузу между запросами робота в секундах. Yandex и Bing поддерживают её. Google игнорирует Crawl-delay — скорость краулинга Google настраивается в Search Console.</p></details>
+    <details class="faq-item"><summary>Какие частые ошибки в robots.txt?</summary><p>Типичные ошибки: блокировка CSS/JS файлов (мешает рендерингу), Disallow: / (блокирует весь сайт), отсутствие файла (робот считает всё разрешённым), блокировка /api/ без Allow для /api/docs, неправильный регистр User-agent.</p></details>
+    <details class="faq-item"><summary>Как проверить robots.txt?</summary><p>Наш инструмент анализирует синтаксис, проверяет доступность файла, находит конфликтующие правила и предупреждает о потенциальных проблемах. Также можно использовать Google Search Console для проверки конкретных URL.</p></details>
+  </div>
+</section><div id="resultCta" class="result-cta" data-cta-mode="anonymous" data-cta-slug="robots-checker" data-href-template="/register?m=${URL}&amp;utm_source=tool_robots-checker&amp;utm_medium=internal&amp;utm_campaign=save_track">
+  <div class="result-cta__icon" aria-hidden="true"><i class="ph-fill ph-bookmark-simple"></i></div>
+  <div class="result-cta__text">
+    <strong>Сохраняйте и следите за URL</strong>
+    <span>Бесплатный аккаунт · проверки 24/7 · уведомления в Telegram, email, Slack — регистрация чтобы мониторить любой URL.</span>
+  </div>
+  <a id="resultCtaBtn" href="/register?m=domozmsk.ru&amp;utm_source=tool_robots-checker&amp;utm_medium=internal&amp;utm_campaign=save_track" class="result-cta__btn">
+    Бесплатная регистрация  </a>
+</div>
+
+<!-- CMS extras: tool-robots-checker -->
+<section class="tool-info block-example-list">
+    <div class="card">
+                    <h2 class="info-title">Связанные гайды</h2>
+                            <p class="block-example-list__intro">Развёрнутые материалы по теме из базы знаний.</p>
+                <ul class="block-example-list__items">
+                            <li>
+                                            <a href="/s/glossary-sitemap-xml">→ sitemap.xml — определение и применение [2026]</a>
+                                    </li>
+                            <li>
+                                            <a href="/s/glossary-indexnow">→ IndexNow — определение и применение [2026]</a>
+                                    </li>
+                            <li>
+                                            <a href="/s/proverka-robotstxt">→ Проверка robots.txt онлайн — анализ файла бесплатно | Enterno.io</a>
+                                    </li>
+                    </ul>
+    </div>
+</section>
+<section class="tool-info block-cta-card">
+    <div class="card block-cta-card__card">
+                    <h2 class="info-title">Автоматизируйте эту проверку</h2>
+                            <p class="block-cta-card__text">Настройте continuous monitoring и получайте алерт, когда что-то сломается. Не нужно помнить запускать вручную.</p>
+                            <div class="block-cta-card__row">
+                                    <a href="/register?utm_source=cms_tool-robots-checker&amp;utm_medium=internal&amp;utm_campaign=ambient_cta" class="btn btn-primary">
+                        Начать бесплатно                    </a>
+                            </div>
+            </div>
+</section>
+</main>
