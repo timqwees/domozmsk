@@ -53,6 +53,90 @@ Allow: /core/cache/phpthumb/*.png$
 Allow: /core/cache/phpthumb/*.webp$
 Allow: /core/cache/phpthumb/*.svg$
 
+# Поисковики отдельными группами (зеркало правил User-agent: *,
+# иначе голый Allow: / снял бы запреты с /manager/ и дублей).
+# При правках блока * — дублировать сюда.
+User-agent: Yandex
+Allow: /
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /assets/components/*/manager/
+Disallow: /index.php
+Disallow: /private/
+Disallow: *?*
+Disallow: *utm_
+Disallow: *openstat=
+Disallow: *from=
+Disallow: *yclid=
+Disallow: *gclid=
+Disallow: *phpsessid=
+Disallow: *sessionid=
+Allow: *?page=
+Allow: *?sort=
+Allow: *?filter=
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /assets/components/*/manager/
+Disallow: /index.php
+Disallow: /private/
+Disallow: *?*
+Disallow: *utm_
+Disallow: *openstat=
+Disallow: *from=
+Disallow: *yclid=
+Disallow: *gclid=
+Disallow: *phpsessid=
+Disallow: *sessionid=
+Allow: *?page=
+Allow: *?sort=
+Allow: *?filter=
+
+User-agent: bingbot
+Allow: /
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /assets/components/*/manager/
+Disallow: /index.php
+Disallow: /private/
+Disallow: *?*
+Disallow: *utm_
+Disallow: *openstat=
+Disallow: *from=
+Disallow: *yclid=
+Disallow: *gclid=
+Disallow: *phpsessid=
+Disallow: *sessionid=
+Allow: *?page=
+Allow: *?sort=
+Allow: *?filter=
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+Disallow: /assets/components/*/manager/
+Disallow: /index.php
+Disallow: /private/
+Disallow: *?*
+Disallow: *utm_
+Disallow: *openstat=
+Disallow: *from=
+Disallow: *yclid=
+Disallow: *gclid=
+Disallow: *phpsessid=
+Disallow: *sessionid=
+Allow: *?page=
+Allow: *?sort=
+Allow: *?filter=
+
 User-agent: OAI-SearchBot
 Allow: /
 
