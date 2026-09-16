@@ -618,3 +618,242 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     // Блок уже виден при загрузке? Не форсируем: догрузится при первом скролле через observer выше
                 })();
+
+/* --- analytics Yandex/GTM (chunk 20) --- */
+(function () {
+    'use strict';
+
+    if (window.__analyticsInitialized) return;
+    window.__analyticsInitialized = true;
+
+    /*
+     * Запускаем аналитику в idle-time браузера.
+     * Это позволяет браузеру сначала отрисовать страницу
+     * и заняться LCP, а уже потом аналитикой.
+     */
+    function runWhenIdle(callback, timeout) {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(callback, {
+                timeout: timeout || 3000
+            });
+        } else {
+            setTimeout(callback, 1500);
+        }
+    }
+
+
+    /* =========================
+       YANDEX METRIKA
+       ========================= */
+
+    function loadYandex() {
+        if (window.__ymLoaded) return;
+        window.__ymLoaded = true;
+
+        (function(m,e,s,r,i,k,a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments);
+            };
+
+            m[i].l = Date.now();
+
+            k = e.createElement(s);
+            a = e.getElementsByTagName(s)[0];
+
+            k.async = true;
+            k.src = r;
+
+            a.parentNode.insertBefore(k, a);
+
+        })(window, document, 'script',
+           'https://mc.yandex.ru/metrika/tag.js',
+           'ym');
+
+
+        ym(108461808, 'init', {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            ecommerce: 'dataLayer'
+        });
+
+
+        ym(99876445, 'init', {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            ecommerce: 'dataLayer'
+        });
+    }
+
+
+    /* =========================
+       GOOGLE TAG MANAGER
+       ========================= */
+
+    function loadGTM() {
+        if (window.__gtmLoaded) return;
+        window.__gtmLoaded = true;
+
+        (function(w,d,s,l,i) {
+            w[l] = w[l] || [];
+
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+
+            var f = d.getElementsByTagName(s)[0];
+            var j = d.createElement(s);
+
+            var dl = l !== 'dataLayer'
+                ? '&l=' + l
+                : '';
+
+            j.async = true;
+
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id='
+                + i
+                + dl;
+
+            f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-KJDVSFH6');
+    }
+
+
+    /* =========================
+       TOP.MAIL.RU
+       ========================= */
+
+    function loadMailRu() {
+
+        if (window.__mailRuLoaded) return;
+        window.__mailRuLoaded = true;
+
+        window._tmr = window._tmr || [];
+
+        window._tmr.push({
+            id: "3794022",
+            type: "pageView",
+            start: (new Date()).getTime()
+        });
+
+        (function(d, w, id) {
+
+            if (d.getElementById(id)) return;
+
+            var ts = d.createElement('script');
+
+            ts.type = 'text/javascript';
+            ts.async = true;
+            ts.id = id;
+            ts.src = 'https://top-fwz1.mail.ru/js/code.js';
+
+            var firstScript =
+                d.getElementsByTagName('script')[0];
+
+            firstScript.parentNode.insertBefore(
+                ts,
+                firstScript
+            );
+
+        })(document, window, 'tmr-code');
+    }
+
+
+    /*
+     * После DOM браузер получает возможность
+     * сначала заняться отрисовкой.
+     */
+    function startAnalytics() {
+
+        runWhenIdle(function () {
+
+            loadYandex();
+
+            /*
+             * GTM немного позже,
+             * чтобы не конкурировать с Метрикой
+             * за ресурсы браузера.
+             */
+            setTimeout(function () {
+                runWhenIdle(loadGTM, 4000);
+            }, 500);
+
+
+            /*
+             * Mail.ru ещё позже.
+             */
+            setTimeout(function () {
+                runWhenIdle(loadMailRu, 5000);
+            }, 1000);
+
+        }, 2500);
+    }
+
+
+    /*
+     * Не используем window.load для основной аналитики.
+     * После DOMContentLoaded браузер может выполнить
+     * аналитику в idle-time.
+     */
+    if (document.readyState === 'loading') {
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            startAnalytics,
+            {
+                once: true,
+                passive: true
+            }
+        );
+
+    } else {
+
+        startAnalytics();
+
+    }
+
+})();
+
+/* --- a11y+swiper init (tpl 1) --- */
+document.addEventListener('DOMContentLoaded', function () {
+            // Accessibility: подписи для плавающих кнопок связи (chunks/social)
+            document.querySelectorAll('.abssocial a:not([aria-label])').forEach(function (link) {
+                var label = link.querySelector('span') && link.querySelector('span').textContent.trim();
+                if (!label) {
+                    if (link.classList.contains('abssocial__one')) label = 'Открыть меню связи';
+                    else if (link.classList.contains('abssocial__close')) label = 'Закрыть меню связи';
+                }
+                if (label) link.setAttribute('aria-label', label);
+            });
+
+            // Hero Slider
+            if (document.querySelector('.hero-swiper')) {
+                new Swiper('.hero-swiper', {
+                    loop: true,
+                    autoplay: { delay: 5000, disableOnInteraction: false },
+                    effect: 'fade',
+                    fadeEffect: { crossFade: true }
+                });
+            }
+
+            // Reviews Slider
+            if (document.querySelector('.reviews-swiper')) {
+                new Swiper('.reviews-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    autoHeight: true,
+                    breakpoints: {
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 2.5 }
+                    },
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                    pagination: { el: '.swiper-pagination', clickable: true }
+                });
+            }
+        });

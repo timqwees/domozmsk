@@ -4220,3 +4220,326 @@ html,body{ scroll-behavior: smooth; }
 body.modal-open {
     overflow: hidden;
 }
+
+/* --- MENU (chunk 7) --- */
+.menu {
+    height: 100%;
+    }
+    
+  .drop {
+    position: relative;
+    padding-bottom: 25px;
+    margin-bottom: -25px;
+    z-index: 100;
+  }
+
+  .drop ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #fff;
+    padding: 8px 0;
+    list-style: none;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+    pointer-events: none;
+    
+    margin-top: 15px;
+  }
+
+  .drop::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .drop ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .drop ul li a:hover {
+    background: #f0f7f0;
+    color: #558255 !important;
+  }
+
+  .drop:hover ul {
+    opacity: 1;
+    visibility: visible;
+    border-top: 0.5px solid gray;
+    transform: translateY(-10.5px);
+    pointer-events: auto;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 400px;
+  }
+  
+  .services-row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* МОБИЛЬНОЕ ПОДМЕНЮ */
+  .mobile-menu .submenu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1001;
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    padding: 0;
+    box-shadow: 2px 0 20px rgba(0,0,0,0.15);
+  }
+  .mobile-menu .submenu.show {
+    left: 0;
+  }
+  .mobile-menu .submenu-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .mobile-menu .back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    padding: 5px 12px;
+    margin-right: 8px;
+    cursor: pointer;
+    color: #333;
+  }
+  .mobile-menu .submenu-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #333;
+  }
+  .mobile-menu .submenu-services {
+    list-style: none;
+    padding: 10px 0 50px 0;
+    margin: 0;
+  }
+  .mobile-menu .submenu-services li a {
+    display: block;
+    padding: 16px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16.5px;
+  }
+  .mobile-menu .submenu-services li a:hover {
+    background: #f8fff8;
+    color: #000;
+  }
+
+  .mobile-menu .menu ul ul {
+    display: block !important;
+  }
+  
+  .menu ul li span {
+    display: none;
+  }
+
+  /* МОБИЛЬНАЯ ВЕРСИЯ - УПРАВЛЕНИЕ PADDING */
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: 1fr;
+        justify-items: start;
+        transition: padding 0.3s ease;
+    }
+    
+    /* Когда меню закрыто - убираем padding */
+    .header.menu-closed {
+        padding: 0 !important;
+    }
+  }
+
+/* --- HERO home (tpl 1) --- */
+body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            overflow-x: hidden
+        }
+
+        /* --- АНИМАЦИЯ REVEAL --- */
+        @supports (animation-timeline: view()) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(80px) scale(0.9);
+                filter: blur(10px);
+                animation: revealAnim linear both;
+                animation-timeline: view();
+                animation-range-start: entry 20%;
+                animation-range-end: entry 80%
+            }
+
+            @keyframes revealAnim {
+                from {
+                    opacity: 0;
+                    transform: translateY(80px) scale(0.9);
+                    filter: blur(10px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0)
+                }
+            }
+        }
+
+        @supports not (animation-timeline: view()) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                filter: none
+            }
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            text-align: left
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3F5F3F, #d4a574);
+            border-radius: 2px
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .hero-slider {
+            height: 100vh;
+            min-height: 700px
+        }
+
+        .hero-slide {
+            position: relative;
+            height: 100%
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%)
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        .animate-ticker {
+            animation: ticker 35s linear infinite
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3F5F3F, #d4a574);
+            z-index: 0
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%)
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3F5F3F;
+            border-radius: 4px
+        }
+
+        /* Accessibility: увеличенные области прикосновения */
+        .footer__social-social a,
+        .abssocial a {
+            min-width: 48px;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px
+        }
+
+        /* LCP: текст hero виден до загрузки Tailwind */
+        .hero-slider h1 {
+            font-size: clamp(1.875rem, 5vw, 3.75rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem
+        }
+
+        /* LCP: контент первого экрана не должен ждать scroll-driven reveal */
+        .hero-slider .reveal {
+            opacity: 1;
+            transform: none;
+            filter: none;
+            animation: none !important;
+        }
