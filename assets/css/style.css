@@ -3976,3 +3976,247 @@ width: 23px;
 [data-type="compare"]>article[data-variant="bad"]>p { color: #7f1d1d; }
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre { text-align:start; }
 html,body{ scroll-behavior: smooth; }
+
+/* === MODAL (перенесено из чанка modal_window) === */
+/* ====================================================================== */
+/* СТИЛИ МОДАЛЬНОГО ОКНО                                                   */
+/* ====================================================================== */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.custom-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.custom-modal-container {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.custom-modal.active .custom-modal-container {
+    transform: translateY(0) scale(1);
+}
+
+.custom-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6b7280;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.custom-modal-close:hover {
+    background: #558255;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.custom-modal-content {
+    padding: 40px;
+}
+
+@media (max-width: 640px) {
+    .custom-modal-content {
+        padding: 30px 20px;
+    }
+}
+
+/* ====================================================================== */
+/* СТИЛИ ФОРМЫ                                                             */
+/* ====================================================================== */
+.modal-form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-form-header h3 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.modal-form-header p {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.modal-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-form-field {
+    position: relative;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #fff;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.modal-input:focus {
+    outline: none;
+    border-color: #558255;
+    box-shadow: 0 0 0 4px rgba(85, 130, 85, 0.1);
+}
+
+.modal-input::placeholder {
+    color: #9ca3af;
+}
+
+.error_namemodal {
+    display: none;
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.modal-form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.modal-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: #558255;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.modal-form-checkbox label {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.modal-form-checkbox label a {
+    color: #558255;
+    text-decoration: underline;
+}
+
+.modal-form-checkbox label a:hover {
+    color: #3d5c3d;
+}
+
+.modal-submit-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #558255 0%, #3d5c3d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    box-shadow: 0 8px 20px rgba(85, 130, 85, 0.3);
+    font-family: inherit;
+}
+
+.modal-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(85, 130, 85, 0.4);
+}
+
+.modal-submit-btn:active {
+    transform: translateY(0);
+}
+
+.modal-submit-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.modal-submit-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Сообщение об успехе */
+.modal-success {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.modal-success svg {
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.modal-success h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.modal-success p {
+    font-size: 15px;
+    color: #6b7280;
+}
+
+/* Блокировка скролла при открытом модальном окне */
+body.modal-open {
+    overflow: hidden;
+}
