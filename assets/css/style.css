@@ -3892,3 +3892,87 @@ width: 23px;
       /*max-height: 500px;*/
     }
 }
+
+/* === ARTICLE-BODY (перенесено из чанка meta) === */
+
+/* === БАЗОВЫЕ СТИЛИ СТАТЬИ === */
+.article-body { font-size: 16px; line-height: 1.7; color: #444; }
+.article-body>section { margin: 32px 0; }
+.article-body>section>h2 { font-size: 24px; margin: 0 0 16px 0; color: #111; font-weight: 700; }
+.article-body>section>h3 { font-size: 20px; margin: 24px 0 12px 0; color: #222; font-weight: 600; }
+.article-body>section>p { font-size: 16px; line-height: 1.7; color: #444; margin: 0 0 16px 0; }
+.article-body>section>p:last-child { margin-bottom: 0; }
+.article-body>section>ul,
+.article-body>section>ol { margin: 0 0 16px 0; padding-left: 24px; }
+.article-body>section li { margin: 8px 0; }
+.article-body a { color: #2563eb; text-decoration: none; }
+.article-body a:hover { text-decoration: underline; }
+
+/* === TL;DR — короткий ответ для читателя и нейропоиска === */
+.tldr { background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 16px; padding: 20px 24px; margin: 0 0 24px 0; }
+.tldr>strong:first-child, .tldr>b:first-child { color: #166534; display: block; margin-bottom: 8px; font-size: 15px; text-transform: uppercase; letter-spacing: .05em; }
+.tldr p { margin: 0; font-size: 16px; line-height: 1.7; color: #14532d; }
+
+/* === СТРУКТУРА СТАТЬИ === */
+[data-type="start"] { font-size: 18px; line-height: 1.7; color: #555; margin: 0 0 24px 0; }
+[data-type="list"] { background: #f8f9fa; border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+[data-type="list"] h2 { font-size: 18px; margin: 0 0 12px 0; color: #111; }
+[data-type="list"] ul { margin: 0; padding-left: 20px;counter-reset: listItem; }
+[data-type="list"] li { margin: 8px 0; }
+[data-type="list"] li::before { content: counter(listItem) ". ";counter-increment: listItem; margin: 8px 0; }
+[data-type="list-body"] ul { margin: 0; padding-left: 20px; counter-reset: listItem; }
+[data-type="list-body"] li { margin: 8px 0; list-style: none; counter-increment: listItem; position: relative; padding-left: 25px; }
+[data-type="list-body"] li::before { content: counter(listItem) ". "; position: absolute; left: 0; font-weight: 600; }
+[data-type="image"] { margin: 24px 0; }
+[data-type="image"] img { width: 100%; object-fit: cover; border-radius: 16px; display: block; }
+[data-type="compare"] { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+@media (max-width: 640px) { [data-type="compare"] { grid-template-columns: 1fr; } }
+[data-type="compare"]>h2,
+[data-type="compare"]>h3 { grid-column: 1 / -1; margin-bottom: 8px; }
+[data-type="box"] { border-radius: 16px; padding: 20px; border: 2px solid; margin: 24px 0; }
+[data-type="box"]>h3,
+[data-type="box"]>h4 { margin: 0 0 12px 0; font-size: 16px; }
+[data-type="box"]>p { margin: 0; font-size: 15px; }
+
+/* Цвета box блоков */
+[data-type="box"][data-color="green"] { background: #f0fdf4; border-color: #bbf7d0; }
+[data-type="box"][data-color="green"]>h3,
+[data-type="box"][data-color="green"]>h4 { color: #166534; }
+[data-type="box"][data-color="green"]>p { color: #14532d; }
+[data-type="box"][data-color="red"] { background: #fef2f2; border-color: #fecaca; }
+[data-type="box"][data-color="red"]>h3,
+[data-type="box"][data-color="red"]>h4 { color: #991b1b; }
+[data-type="box"][data-color="red"]>p { color: #7f1d1d; }
+[data-type="box"][data-color="blue"] { background: #eff6ff; border-color: #bfdbfe; }
+[data-type="box"][data-color="blue"]>h3,
+[data-type="box"][data-color="blue"]>h4 { color: #1e40af; }
+[data-type="box"][data-color="blue"]>p { color: #1e3a8a; }
+[data-type="box"][data-color="yellow"] { background: #fefce8; border-color: #fde047; }
+[data-type="box"][data-color="yellow"]>h3,
+[data-type="box"][data-color="yellow"]>h4 { color: #854d0e; }
+[data-type="box"][data-color="yellow"]>p { color: #713f12; }
+[data-type="box"][data-color="dark"] { background: #1f2937; border-color: #374151; }
+[data-type="box"][data-color="dark"]>h3,
+[data-type="box"][data-color="dark"]>h4 { color: #f9fafb; }
+[data-type="box"][data-color="dark"]>p { color: #d1d5db; }
+[data-type="box"][data-color="gray"] { background: #f3f4f6; border-color: #d1d5db; }
+[data-type="box"][data-color="gray"]>h3,
+[data-type="box"][data-color="gray"]>h4 { color: #374151; }
+[data-type="box"][data-color="gray"]>p { color: #4b5563; }
+[data-type="box"][data-color="muted"] { background: #f9fafb; border-color: #e5e7eb; }
+[data-type="box"][data-color="muted"]>h3,
+[data-type="box"][data-color="muted"]>h4 { color: #6b7280; }
+[data-type="box"][data-color="muted"]>p { color: #9ca3af; }
+
+/* compare — карточки с цветами */
+[data-type="compare"]>article { border-radius: 16px; padding: 20px; border: 2px solid; }
+[data-type="compare"]>article>h3 { margin: 0 0 12px 0; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+[data-type="compare"]>article>p { margin: 0; font-size: 15px; }
+[data-type="compare"]>article[data-variant="good"] { background: #f0fdf4; border-color: #bbf7d0; }
+[data-type="compare"]>article[data-variant="good"]>h3 { color: #166534; }
+[data-type="compare"]>article[data-variant="good"]>p { color: #14532d; }
+[data-type="compare"]>article[data-variant="bad"] { background: #fef2f2; border-color: #fecaca; }
+[data-type="compare"]>article[data-variant="bad"]>h3 { color: #991b1b; }
+[data-type="compare"]>article[data-variant="bad"]>p { color: #7f1d1d; }
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre { text-align:start; }
+html,body{ scroll-behavior: smooth; }
