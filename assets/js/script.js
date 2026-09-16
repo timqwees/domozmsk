@@ -426,3 +426,205 @@ document.addEventListener('fetchit:success', (e) => {
 
    window.location.href = '/thanks';
 });
+
+/* === moved inline scripts (were inline in chunks/templates) === */
+
+/* --- MENU (chunk 7 header) --- */
+document.addEventListener('DOMContentLoaded', function () {
+  const triggers = document.querySelectorAll('.submenu-trigger');
+  const header = document.querySelector('.header');
+  
+  // Изначально меню закрыто - padding = 0
+  if (header) {
+    header.classList.add('menu-closed');
+  }
+  
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const submenu = document.getElementById(this.dataset.submenu);
+      if (submenu) { 
+        submenu.classList.add('show');
+        // Открываем меню - возвращаем padding
+        if (header) {
+          header.classList.remove('menu-closed');
+        }
+      };
+    });
+  });
+
+  document.querySelectorAll('.back-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      this.closest('.submenu').classList.remove('show');
+      // Проверяем, все ли подменю закрыты
+      const openSubmenus = document.querySelectorAll('.submenu.show');
+      if (openSubmenus.length === 0 && header) {
+        // Все меню закрыты - убираем padding
+        header.classList.add('menu-closed');
+      }
+    });
+  });
+});
+
+/* --- MODAL (chunk 30 modal_window) --- */
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const modal = document.getElementById('modal-form');
+    const closeBtn = modal.querySelector('.custom-modal-close');
+    const overlay = modal.querySelector('.custom-modal-overlay');
+    
+    if (!modal) {
+        console.error('❌ Модальное окно не найдено!');
+        return;
+    }
+    
+    // === Открытие модального окна ===
+    function openModal() {
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+        console.log('Модальное окно открыто');
+    }
+    
+    // === Закрытие модального окна ===
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        console.log('Модальное окно закрыто');
+    }
+    
+    // === Обработчик клика на кнопки с классом modal_window ===
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.modal_window');
+        if (trigger) {
+            e.preventDefault();
+            e.stopPropagation();
+            openModal();
+        }
+    });
+    
+    // === Закрытие по кнопке X ===
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // === Закрытие по клику на overlay ===
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+    
+    // === Закрытие по Escape ===
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    console.log('Скрипт модального окна загружен');
+});
+
+/* --- QUIZ (tpl 1 home) --- */
+(function() {
+                    'use strict';
+                
+                    const QUIZ_ID = '694a7f2849c7600019f84985';
+                    const QUIZ_CONFIG = {
+                        id: QUIZ_ID,
+                        buttonText: '«Старт»',
+                        bgColor: '#283328',
+                        textColor: '#ffffff',
+                        rounded: true,
+                        shadow: 'rgba(40, 51, 40, 0.5)',
+                        blicked: true,
+                        fixed: false,
+                        buttonOnMobile: false,
+                        disableOnMobile: false,
+                        fullWidth: false
+                    };
+                
+                    let marquizLoaded = false;
+                    let marquizInitialized = false;
+                
+                    // Загрузка скрипта Marquiz
+                    function loadMarquizScript() {
+                        if (marquizLoaded) return;
+                        marquizLoaded = true;
+                
+                        console.log('[Marquiz] Загрузка скрипта...');
+                
+                        const script = document.createElement('script');
+                        script.src = 'https://script.marquiz.ru/v2.js';
+                        script.async = true;
+                
+                        script.onload = function() {
+                            console.log('[Marquiz] Скрипт загружен');
+                            initMarquiz();
+                        };
+                
+                        script.onerror = function() {
+                            console.error('[Marquiz] Ошибка загрузки скрипта');
+                            marquizLoaded = false;
+                        };
+                
+                        document.head.appendChild(script);
+                    }
+                
+                    // Инициализация квиза
+                    function initMarquiz() {
+                        if (marquizInitialized) return;
+                        if (typeof Marquiz === 'undefined') {
+                            console.warn('[Marquiz] Marquiz ещё не определён, ждём...');
+                            setTimeout(initMarquiz, 100);
+                            return;
+                        }
+                
+                        marquizInitialized = true;
+                        console.log('[Marquiz] Инициализация...');
+                
+                        // Инициализация
+                        Marquiz.init({
+                            host: '//quiz.marquiz.ru',
+                            region: 'ru',
+                            id: QUIZ_ID,
+                            autoOpen: false,
+                            autoOpenFreq: 'once',
+                            openOnExit: false,
+                            disableOnMobile: false
+                        });
+                
+                        // Добавление inline-квиза
+                        Marquiz.add(['Inline', QUIZ_CONFIG]);
+                        console.log('[Marquiz] Квиз добавлен');
+                    }
+                
+                    // Загрузка СТРОГО при скролле до блока (без принудительных таймеров — они грузят Marquiz 600+ КБ даже тем, кто не доскроллил, и роняют PSI)
+                    const quizBlock = document.getElementById('kviz');
+                    if (!quizBlock) {
+                        console.error('[Marquiz] Блок #kviz не найден');
+                        return;
+                    }
+                
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver(function(entries) {
+                            entries.forEach(function(entry) {
+                                if (entry.isIntersecting) {
+                                    console.log('[Marquiz] Блок виден, загружаем...');
+                                    loadMarquizScript();
+                                    observer.disconnect();
+                                }
+                            });
+                        }, {
+                            rootMargin: '200px'
+                        });
+                
+                        observer.observe(quizBlock);
+                        console.log('[Marquiz] Observer установлен');
+                    } else {
+                        // Fallback для старых браузеров
+                        console.log('[Marquiz] IntersectionObserver не поддерживается');
+                        setTimeout(loadMarquizScript, 2000);
+                    }
+                
+                    // Блок уже виден при загрузке? Не форсируем: догрузится при первом скролле через observer выше
+                })();
