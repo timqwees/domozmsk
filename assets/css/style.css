@@ -4221,88 +4221,8 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* --- MENU (chunk 7) --- */
-.menu {
-    height: 100%;
-    }
-    
-  .drop {
-    position: relative;
-    padding-bottom: 25px;
-    margin-bottom: -25px;
-    z-index: 100;
-  }
-
-  .drop ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-    background: #fff;
-    padding: 8px 0;
-    list-style: none;
-    
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.25s ease-in-out;
-    pointer-events: none;
-    
-    margin-top: 15px;
-  }
-
-  .drop::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background: transparent;
-    z-index: 1;
-  }
-
-  .drop ul li a {
-    display: block;
-    padding: 12px 20px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .drop ul li a:hover {
-    background: #f0f7f0;
-    color: #558255 !important;
-  }
-
-  .drop:hover ul {
-    opacity: 1;
-    visibility: visible;
-    border-top: 0.5px solid gray;
-    transform: translateY(-10.5px);
-    pointer-events: auto;
-  }
-
-  .services {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    min-width: 400px;
-  }
-  
-  .services-row {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 5px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  /* МОБИЛЬНОЕ ПОДМЕНЮ */
+/* --- MOBILE MENU (остаток чанка header; десктоп — чистый Tailwind) --- */
+/* МОБИЛЬНОЕ ПОДМЕНЮ */
   .mobile-menu .submenu {
     position: fixed;
     top: 0;
@@ -4359,14 +4279,6 @@ body.modal-open {
   .mobile-menu .submenu-services li a:hover {
     background: #f8fff8;
     color: #000;
-  }
-
-  .mobile-menu .menu ul ul {
-    display: block !important;
-  }
-  
-  .menu ul li span {
-    display: none;
   }
 
   /* МОБИЛЬНАЯ ВЕРСИЯ - УПРАВЛЕНИЕ PADDING */
