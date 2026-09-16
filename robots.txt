@@ -92,6 +92,19 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+# AI usage preferences (декларация; реально отдаётся HTTP-заголовком, см. .htaccess).
+# Значения должны совпадать с заголовком Content-Signal.
+# Content-Signal: ai-train=no, search=yes, ai-input=no
+
 Host: domozmsk.ru
 
 Clean-param: utm_source /
