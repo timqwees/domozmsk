@@ -240,9 +240,11 @@ $(document).ready(function() {
         'opacity': '.5'
     });
     
-    // Инициализация маски
-    $("input[type='phone']").mask("+7 (999) 999-99-99");
- $("#af_phonee").mask("+7 (999) 999-99-99");
+    // Инициализация маски (плагин maskedinput подключается отдельно; без него — тихо пропускаем)
+    if ($.fn.mask) {
+        $("input[type='phone']").mask("+7 (999) 999-99-99");
+        $("#af_phonee").mask("+7 (999) 999-99-99");
+    }
     function checkFormFields() {   
         var nameInput = document.getElementById('af_name');
         var emailInput = document.getElementById('af_email');
@@ -476,7 +478,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = modal.querySelector('.custom-modal-overlay');
     
     if (!modal) {
-        console.error('❌ Модальное окно не найдено!');
         return;
     }
     
@@ -484,14 +485,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function openModal() {
         modal.classList.add('active');
         document.body.classList.add('modal-open');
-        console.log('Модальное окно открыто');
     }
     
     // === Закрытие модального окна ===
     function closeModal() {
         modal.classList.remove('active');
         document.body.classList.remove('modal-open');
-        console.log('Модальное окно закрыто');
     }
     
     // === Обработчик клика на кнопки с классом modal_window ===
@@ -521,7 +520,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    console.log('Скрипт модального окна загружен');
 });
 
 /* --- QUIZ (tpl 1 home) --- */
@@ -551,19 +549,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (marquizLoaded) return;
                         marquizLoaded = true;
                 
-                        console.log('[Marquiz] Загрузка скрипта...');
                 
                         const script = document.createElement('script');
                         script.src = 'https://script.marquiz.ru/v2.js';
                         script.async = true;
                 
                         script.onload = function() {
-                            console.log('[Marquiz] Скрипт загружен');
                             initMarquiz();
                         };
                 
                         script.onerror = function() {
-                            console.error('[Marquiz] Ошибка загрузки скрипта');
                             marquizLoaded = false;
                         };
                 
@@ -574,13 +569,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     function initMarquiz() {
                         if (marquizInitialized) return;
                         if (typeof Marquiz === 'undefined') {
-                            console.warn('[Marquiz] Marquiz ещё не определён, ждём...');
                             setTimeout(initMarquiz, 100);
                             return;
                         }
                 
                         marquizInitialized = true;
-                        console.log('[Marquiz] Инициализация...');
                 
                         // Инициализация
                         Marquiz.init({
@@ -595,13 +588,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                         // Добавление inline-квиза
                         Marquiz.add(['Inline', QUIZ_CONFIG]);
-                        console.log('[Marquiz] Квиз добавлен');
                     }
                 
                     // Загрузка СТРОГО при скролле до блока (без принудительных таймеров — они грузят Marquiz 600+ КБ даже тем, кто не доскроллил, и роняют PSI)
                     const quizBlock = document.getElementById('kviz');
                     if (!quizBlock) {
-                        console.error('[Marquiz] Блок #kviz не найден');
                         return;
                     }
                 
@@ -609,7 +600,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         const observer = new IntersectionObserver(function(entries) {
                             entries.forEach(function(entry) {
                                 if (entry.isIntersecting) {
-                                    console.log('[Marquiz] Блок виден, загружаем...');
                                     loadMarquizScript();
                                     observer.disconnect();
                                 }
@@ -619,10 +609,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                 
                         observer.observe(quizBlock);
-                        console.log('[Marquiz] Observer установлен');
                     } else {
                         // Fallback для старых браузеров
-                        console.log('[Marquiz] IntersectionObserver не поддерживается');
                         setTimeout(loadMarquizScript, 2000);
                     }
                 
