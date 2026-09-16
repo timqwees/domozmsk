@@ -358,6 +358,7 @@ $(document).ready(function() {
     function initEvents() {
         var nameInput = document.getElementById('af_name');
         var phoneInput = document.getElementById('af_phone');
+        if (!nameInput || !phoneInput) return;
         // События для поля имени
         nameInput.addEventListener('input', checkFormFields);
         nameInput.addEventListener('blur', checkFormFields);
@@ -373,6 +374,7 @@ $(document).ready(function() {
       function initEventse() {
         var nameeInput = document.getElementById('af_namee');
         var phoneeInput = document.getElementById('af_phonee');
+        if (!nameeInput || !phoneeInput) return;
         // События для поля имени
         nameeInput.addEventListener('input', checkFormFieldse);
         nameeInput.addEventListener('blur', checkFormFieldse);
