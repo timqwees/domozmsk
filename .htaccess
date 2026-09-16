@@ -12,6 +12,15 @@ RewriteEngine On
 RewriteBase /
 
 
+# AI usage preferences vocabulary (IETF draft draft-romm-aipref-contentsignals,
+# EXPIRED individual draft, no formal standing). Honored only by agents that
+# explicitly support Content Signals (e.g. Cloudflare-based). This MUST be an
+# HTTP response header - a robots.txt block does nothing (it would be comments).
+<IfModule mod_headers.c>
+    Header always set Content-Signal "ai-train=no, search=yes, ai-input=no"
+</IfModule>
+
+
 # Prevent rewrite the .well-known directory used by LetsEncrypt by rules below of this rule
 RewriteRule "^\.well-known/" - [L]
 
