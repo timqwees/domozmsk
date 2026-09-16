@@ -57,8 +57,11 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #RewriteRule ^(.*)$ https://example.com/$1 [R=301,L]
 
 
-# Canonicalize legacy homepage alias /main -> / (resource id 1 now has empty alias)
+# Canonicalize homepage alias /main -> / (avoids duplicate with site root)
 RewriteRule ^main/?$ / [R=301,L]
+
+# RSS feed canonical short URL
+RewriteRule ^rss\.xml$ /rss.rss [R=301,L]
 
 
 # The Friendly URLs part
