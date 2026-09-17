@@ -4689,3 +4689,33 @@ body {
     backdrop-filter: url(#displacementFilter);
     -webkit-backdrop-filter: url(#displacementFilter);
 }
+
+/* === abssocial: закрытое состояние — видна только главная круглая кнопка === */
+.abssocial a.abssocial__one
+{
+    width: 60px;
+    height: 60px;
+    background: #558255;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+.abssocial a.abssocial__one svg
+{
+    width: 30px;
+    height: 28px;
+}
+.abssocial__two,
+a.abssocial__fry,
+a.abssocial__fy,
+a.abssocial__fo
+{
+    bottom: 15%;
+    right: 5%;
+}
+.abssocial__close
+{
+    pointer-events: none;
+}

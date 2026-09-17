@@ -5,8 +5,8 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
 $('.abssocial__one').click( function() {
-  $(this).css({'opacity':'0','zIndex':'9999'})
-    $('.abssocial__close').css('opacity','1')
+  $(this).css({'opacity':'0','zIndex':'9999','pointer-events':'none'})
+    $('.abssocial__close').css({'opacity':'1','pointer-events':'auto'})
 $('.abssocial__two').css('transform','translateY(-70px)');   
 $('.abssocial__fry').css('transform','translateY(-135px)'); 
 $('.abssocial__fy ').css('transform','translateY(-200px)');  
@@ -14,8 +14,8 @@ $('.abssocial__fo ').css('transform','translateY(-266px)');
 
 });
 $('.abssocial__close').click( function() {
-  $(this).css('opacity','0')
-    $('.abssocial__one').css({'opacity':'1','zIndex':'99999'})
+  $(this).css({'opacity':'0','pointer-events':'none'})
+    $('.abssocial__one').css({'opacity':'1','zIndex':'99999','pointer-events':'auto'})
     $('.abssocial__two').css('transform','translateY(0px)');
     $('.abssocial__fry').css('transform','translateY(0px)'); 
     $('.abssocial__fy ').css('transform','translateY(0px)'); 
