@@ -4486,3 +4486,16 @@ body {
     isolation: isolate;
     pointer-events: none;
 }
+/* Жидкое стекло для самой планки меню (без overflow — иначе обрежет дропдауны) */
+.liquid-bar
+{
+    position: relative;
+    isolation: isolate;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.liquid-bar
+{
+    backdrop-filter: url(#displacementFilter);
+    -webkit-backdrop-filter: url(#displacementFilter);
+}
