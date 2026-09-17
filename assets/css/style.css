@@ -4237,9 +4237,10 @@ body.modal-open {
         display: flex;
         align-items: center;
         justify-content: center;
-        position: fixed;
-        top: 18px;
-        right: 32px;
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
         width: 48px;
         height: 48px;
         background: #fff;
