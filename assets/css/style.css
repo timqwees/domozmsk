@@ -4224,82 +4224,246 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* --- MOBILE MENU (остаток чанка header; десктоп — чистый Tailwind) --- */
-/* МОБИЛЬНОЕ ПОДМЕНЮ */
-  .mobile-menu .submenu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    z-index: 1001;
-    transition: left 0.4s ease;
-    overflow-y: auto;
-    padding: 0;
-    box-shadow: 2px 0 20px rgba(0,0,0,0.15);
-  }
-  .mobile-menu .submenu.show {
-    left: 0;
-  }
-  .mobile-menu .submenu-header {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  .mobile-menu .back-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    padding: 5px 12px;
-    margin-right: 8px;
-    cursor: pointer;
-    color: #333;
-  }
-  .mobile-menu .submenu-title {
-    font-size: 19px;
-    font-weight: 600;
-    color: #333;
-  }
-  .mobile-menu .submenu-services {
-    list-style: none;
-    padding: 10px 0 50px 0;
-    margin: 0;
-  }
-  .mobile-menu .submenu-services li a {
-    display: block;
-    padding: 16px 20px;
-    color: #333;
-    text-decoration: none;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 16.5px;
-  }
-  .mobile-menu .submenu-services li a:hover {
-    background: #f8fff8;
-    color: #000;
-  }
-
-  /* МОБИЛЬНАЯ ВЕРСИЯ - УПРАВЛЕНИЕ PADDING */
-  @media only screen and (min-width: 320px) and (max-width: 768px) {
-    .header {
-        padding: 10px 15px;
-        display: grid;
-        gap: 5px;
-        grid-template-columns: 1fr;
-        justify-items: start;
-        transition: padding 0.3s ease;
+/* --- MOBILE MENU v2 (бургер справа, панель сверху-вниз, экраны) --- */
+/* === МОБИЛЬНОЕ МЕНЮ v2: бургер справа, панель сверху-вниз, экраны-подменю === */
+.mobile-menu .menu-bar
+{
+    display: none;
+}
+@media (max-width: 1023.98px)
+{
+    .mobile-menu .menu-bar
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 50%;
+        box-shadow: 0 4px 16px rgba(0,0,0,.12);
+        cursor: pointer;
+        z-index: 10002;
+        padding: 0;
     }
-    
-    /* Когда меню закрыто - убираем padding */
-    .header.menu-closed {
-        padding: 0 !important;
+    .mobile-menu .menu-bar span,
+    .mobile-menu .menu-bar span::before,
+    .mobile-menu .menu-bar span::after
+    {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #1a1a1a;
+        border-radius: 2px;
+        transition: transform .3s ease, opacity .3s ease;
+        content: "";
     }
-  }
+    .mobile-menu .menu-bar span
+    {
+        position: relative;
+    }
+    .mobile-menu .menu-bar span::before
+    {
+        position: absolute;
+        top: -7px;
+        left: 0;
+    }
+    .mobile-menu .menu-bar span::after
+    {
+        position: absolute;
+        top: 7px;
+        left: 0;
+    }
+    .mobile-menu .menu-bar.open span
+    {
+        background: transparent;
+    }
+    .mobile-menu .menu-bar.open span::before
+    {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu .menu-bar.open span::after
+    {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    .mobile-menu .menu
+    {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
+        background: #fff;
+        z-index: 10001;
+        overflow-y: auto;
+        padding: 0 0 40px 0;
+        transform: translateY(-100%);
+        transition: transform .45s cubic-bezier(.32,.72,.35,1);
+        visibility: hidden;
+    }
+    .mobile-menu .menu.open
+    {
+        transform: translateY(0);
+        visibility: visible;
+    }
+    body.menu-open
+    {
+        overflow: hidden;
+    }
+    .mobile-menu .mmenu-top
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+    }
+    .mobile-menu .mmenu-top .logo img
+    {
+        height: 40px;
+        width: auto;
+    }
+    .mobile-menu .mmenu-close
+    {
+        background: #f3f4f6;
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #1a1a1a;
+    }
+    .mobile-menu .mmenu-list
+    {
+        list-style: none;
+        margin: 0;
+        padding: 10px 0 0 0;
+    }
+    .mobile-menu .mmenu-list > li > a
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 600;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .mobile-menu .has-children > a::after
+    {
+        content: "›";
+        font-size: 26px;
+        line-height: 1;
+        color: #558255;
+        font-weight: 400;
+    }
+    .mobile-menu .submenu
+    {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
+        background: #fff;
+        z-index: 10003;
+        overflow-y: auto;
+        padding: 0 0 50px 0;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+        visibility: hidden;
+    }
+    .mobile-menu .submenu.show
+    {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    .mobile-menu .submenu-header
+    {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 12px 14px 8px;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+    .mobile-menu .back-btn
+    {
+        background: none;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px;
+        cursor: pointer;
+        color: #558255;
+        white-space: nowrap;
+    }
+    .mobile-menu .submenu-title
+    {
+        font-size: 17px;
+        font-weight: 700;
+        color: #1a1a1a;
+        flex: 1;
+        text-align: center;
+        margin-right: 44px;
+    }
+    .mobile-menu .submenu-services
+    {
+        list-style: none;
+        padding: 6px 0 0 0;
+        margin: 0;
+    }
+    .mobile-menu .submenu-services li a
+    {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+    }
+    .mobile-menu .mmenu-foot
+    {
+        padding: 24px 20px 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .mobile-menu .mmenu-call
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #558255;
+        color: #fff;
+        font-weight: 700;
+        font-size: 17px;
+        border-radius: 14px;
+        padding: 16px;
+        text-decoration: none;
+    }
+    .mobile-menu .mmenu-mail
+    {
+        text-align: center;
+        color: #558255;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 8px;
+    }
+}
 
 /* --- HERO home (tpl 1) --- */
 body {

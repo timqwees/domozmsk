@@ -433,45 +433,46 @@ document.addEventListener('fetchit:success', (e) => {
 
 /* === moved inline scripts (were inline in chunks/templates) === */
 
-/* --- MENU (chunk 7 header) --- */
-document.addEventListener('DOMContentLoaded', function () {
-  const triggers = document.querySelectorAll('.submenu-trigger');
-  const header = document.querySelector('.header');
-  
-  // Изначально меню закрыто - padding = 0
-  if (header) {
-    header.classList.add('menu-closed');
-  }
-  
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      const submenu = document.getElementById(this.dataset.submenu);
-      if (submenu) { 
-        submenu.classList.add('show');
-        // Открываем меню - возвращаем padding
-        if (header) {
-          header.classList.remove('menu-closed');
-        }
-      };
+/* --- Мобильное меню v2: бургер справа, панель сверху-вниз, экраны --- */
+(function () {
+    var btn = document.getElementById('mmenuBtn');
+    var panel = document.getElementById('mmenuPanel');
+    if (!btn || !panel) return;
+    function openMenu() {
+        panel.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('menu-open');
+    }
+    function closeMenu() {
+        panel.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('menu-open');
+        panel.querySelectorAll('.submenu.show').forEach(function (s) { s.classList.remove('show'); });
+    }
+    btn.addEventListener('click', function () {
+        if (panel.classList.contains('open')) closeMenu();
+        else openMenu();
     });
-  });
-
-  document.querySelectorAll('.back-btn').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      this.closest('.submenu').classList.remove('show');
-      // Проверяем, все ли подменю закрыты
-      const openSubmenus = document.querySelectorAll('.submenu.show');
-      if (openSubmenus.length === 0 && header) {
-        // Все меню закрыты - убираем padding
-        header.classList.add('menu-closed');
-      }
+    panel.querySelectorAll('.mmenu-close').forEach(function (b) { b.addEventListener('click', closeMenu); });
+    panel.querySelectorAll('.submenu-trigger').forEach(function (t) {
+        t.addEventListener('click', function (e) {
+            e.preventDefault();
+            var s = document.getElementById(t.dataset.submenu);
+            if (s) s.classList.add('show');
+        });
     });
-  });
-});
-
+    panel.querySelectorAll('.submenu .back-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var s = b.closest('.submenu');
+            if (s) s.classList.remove('show');
+        });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
 /* --- MODAL (chunk 30 modal_window) --- */
 document.addEventListener('DOMContentLoaded', function() {
     
