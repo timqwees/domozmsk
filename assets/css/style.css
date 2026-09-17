@@ -4471,6 +4471,21 @@ body.modal-open {
     }
 }
 
+/* === Mobile v2 vs legacy: добивки специфичности === */
+.mobile-menu .menu
+{
+    opacity: 1;
+}
+.mobile-menu .menu-bar
+{
+    opacity: 1;
+}
+.mobile-menu .menu-bar span
+{
+    top: auto;
+    left: auto;
+}
+
 /* --- HERO home (tpl 1) --- */
 body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
