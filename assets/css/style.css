@@ -4458,3 +4458,26 @@ body {
 
 /* !text-black: important-модификатор не попадает в сборку Tailwind (сканер), поэтому явно */
 .\!text-black { color: #000 !important; }
+
+/* Liquid Glass для выпадающих меню: матовое искажение поверх frosted-подложки.
+   Пустой overlay никого не перекрывает (pointer-events: none, z-index: 0). */
+.liquid-menu
+{
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    backdrop-filter: url(#displacementFilter);
+    -webkit-backdrop-filter: url(#displacementFilter);
+}
+.liquidGlass-effect
+{
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    filter: url(#glass-distortion);
+    overflow: hidden;
+    isolation: isolate;
+    pointer-events: none;
+}
