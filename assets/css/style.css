@@ -264,6 +264,12 @@ padding: 5px 0;
   width: 100%;
      background: rgba(0, 0, 0, 0.7);
 }
+/* Шапка: fixed-позиция без тёмного фона (фон — стекло пилюли) */
+header.fix {
+  z-index: 9999101;
+  position: fixed;
+  width: 100%;
+}
 .header__spisok img{
     max-width: 23px;
     width: 100%;
