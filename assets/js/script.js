@@ -433,46 +433,47 @@ document.addEventListener('fetchit:success', (e) => {
 
 /* === moved inline scripts (were inline in chunks/templates) === */
 
-/* --- Мобильное меню v2: бургер справа, панель сверху-вниз, экраны --- */
+/* --- Мобильное меню v3 (автономное, mm-*) --- */
 (function () {
-    var btn = document.getElementById('mmenuBtn');
-    var panel = document.getElementById('mmenuPanel');
+    var btn = document.getElementById('mmBtn');
+    var panel = document.getElementById('mmPanel');
     if (!btn || !panel) return;
     function openMenu() {
         panel.classList.add('open');
         btn.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
         panel.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('menu-open');
+        document.body.classList.add('mm-open');
     }
     function closeMenu() {
         panel.classList.remove('open');
         btn.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
         panel.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('menu-open');
-        panel.querySelectorAll('.submenu.show').forEach(function (s) { s.classList.remove('show'); });
+        document.body.classList.remove('mm-open');
+        panel.querySelectorAll('.mm-sub.show').forEach(function (s) { s.classList.remove('show'); });
     }
     btn.addEventListener('click', function () {
         if (panel.classList.contains('open')) closeMenu();
         else openMenu();
     });
-    panel.querySelectorAll('.mmenu-close').forEach(function (b) { b.addEventListener('click', closeMenu); });
-    panel.querySelectorAll('.submenu-trigger').forEach(function (t) {
+    panel.querySelectorAll('.mm-x').forEach(function (b) { b.addEventListener('click', closeMenu); });
+    panel.querySelectorAll('.mm-trigger').forEach(function (t) {
         t.addEventListener('click', function (e) {
             e.preventDefault();
             var s = document.getElementById(t.dataset.submenu);
             if (s) s.classList.add('show');
         });
     });
-    panel.querySelectorAll('.submenu .back-btn').forEach(function (b) {
+    panel.querySelectorAll('.mm-sub .mm-back').forEach(function (b) {
         b.addEventListener('click', function () {
-            var s = b.closest('.submenu');
+            var s = b.closest('.mm-sub');
             if (s) s.classList.remove('show');
         });
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 })();
+
 /* --- MODAL (chunk 30 modal_window) --- */
 document.addEventListener('DOMContentLoaded', function() {
     

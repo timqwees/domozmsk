@@ -4224,15 +4224,14 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* --- MOBILE MENU v2 (бургер справа, панель сверху-вниз, экраны) --- */
-/* === МОБИЛЬНОЕ МЕНЮ v2: бургер справа, панель сверху-вниз, экраны-подменю === */
-.mobile-menu .menu-bar
+/* --- MOBILE MENU v3 (автономное, mm-*, бургер в пилюле) --- */
+.mm-wrap .mm-burger
 {
     display: none;
 }
 @media (max-width: 1023.98px)
 {
-    .mobile-menu .menu-bar
+    .mm-wrap .mm-burger
     {
         display: flex;
         align-items: center;
@@ -4251,9 +4250,9 @@ body.modal-open {
         z-index: 10002;
         padding: 0;
     }
-    .mobile-menu .menu-bar span,
-    .mobile-menu .menu-bar span::before,
-    .mobile-menu .menu-bar span::after
+    .mm-wrap .mm-burger span,
+    .mm-wrap .mm-burger span::before,
+    .mm-wrap .mm-burger span::after
     {
         display: block;
         width: 22px;
@@ -4263,35 +4262,37 @@ body.modal-open {
         transition: transform .3s ease, opacity .3s ease;
         content: "";
     }
-    .mobile-menu .menu-bar span
+    .mm-wrap .mm-burger span
     {
         position: relative;
+        top: auto;
+        left: auto;
     }
-    .mobile-menu .menu-bar span::before
+    .mm-wrap .mm-burger span::before
     {
         position: absolute;
         top: -7px;
         left: 0;
     }
-    .mobile-menu .menu-bar span::after
+    .mm-wrap .mm-burger span::after
     {
         position: absolute;
         top: 7px;
         left: 0;
     }
-    .mobile-menu .menu-bar.open span
+    .mm-wrap .mm-burger.open span
     {
         background: transparent;
     }
-    .mobile-menu .menu-bar.open span::before
+    .mm-wrap .mm-burger.open span::before
     {
         transform: translateY(7px) rotate(45deg);
     }
-    .mobile-menu .menu-bar.open span::after
+    .mm-wrap .mm-burger.open span::after
     {
         transform: translateY(-7px) rotate(-45deg);
     }
-    .mobile-menu .menu
+    .mm-wrap .mm-panel
     {
         position: fixed;
         inset: 0;
@@ -4301,20 +4302,22 @@ body.modal-open {
         z-index: 10001;
         overflow-y: auto;
         padding: 0 0 40px 0;
+        margin: 0;
         transform: translateY(-100%);
         transition: transform .45s cubic-bezier(.32,.72,.35,1);
         visibility: hidden;
+        opacity: 1;
     }
-    .mobile-menu .menu.open
+    .mm-wrap .mm-panel.open
     {
         transform: translateY(0);
         visibility: visible;
     }
-    body.menu-open
+    body.mm-open
     {
         overflow: hidden;
     }
-    .mobile-menu .mmenu-top
+    .mm-wrap .mm-top
     {
         display: flex;
         align-items: center;
@@ -4326,12 +4329,13 @@ body.modal-open {
         top: 0;
         z-index: 5;
     }
-    .mobile-menu .mmenu-top .logo img
+    .mm-wrap .mm-top .logo img
     {
         height: 40px;
         width: auto;
+        display: block;
     }
-    .mobile-menu .mmenu-close
+    .mm-wrap .mm-x
     {
         background: #f3f4f6;
         border: none;
@@ -4343,14 +4347,20 @@ body.modal-open {
         justify-content: center;
         cursor: pointer;
         color: #1a1a1a;
+        flex-shrink: 0;
     }
-    .mobile-menu .mmenu-list
+    .mm-wrap .mm-list
     {
         list-style: none;
         margin: 0;
         padding: 10px 0 0 0;
     }
-    .mobile-menu .mmenu-list > li > a
+    .mm-wrap .mm-item
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .mm-wrap .mm-link
     {
         display: flex;
         align-items: center;
@@ -4364,15 +4374,16 @@ body.modal-open {
         letter-spacing: 0;
         border-bottom: 1px solid #f0f0f0;
     }
-    .mobile-menu .has-children > a::after
+    .mm-wrap .mm-has-sub > .mm-link::after
     {
         content: "›";
         font-size: 26px;
         line-height: 1;
         color: #558255;
         font-weight: 400;
+        margin-left: 8px;
     }
-    .mobile-menu .submenu
+    .mm-wrap .mm-sub
     {
         position: fixed;
         inset: 0;
@@ -4382,16 +4393,18 @@ body.modal-open {
         z-index: 10003;
         overflow-y: auto;
         padding: 0 0 50px 0;
+        margin: 0;
         transform: translateX(100%);
         transition: transform .35s ease;
         visibility: hidden;
+        opacity: 1;
     }
-    .mobile-menu .submenu.show
+    .mm-wrap .mm-sub.show
     {
         transform: translateX(0);
         visibility: visible;
     }
-    .mobile-menu .submenu-header
+    .mm-wrap .mm-subhead
     {
         display: flex;
         align-items: center;
@@ -4403,7 +4416,7 @@ body.modal-open {
         top: 0;
         z-index: 2;
     }
-    .mobile-menu .back-btn
+    .mm-wrap .mm-back
     {
         background: none;
         border: none;
@@ -4415,7 +4428,7 @@ body.modal-open {
         color: #558255;
         white-space: nowrap;
     }
-    .mobile-menu .submenu-title
+    .mm-wrap .mm-subtitle
     {
         font-size: 17px;
         font-weight: 600;
@@ -4425,13 +4438,18 @@ body.modal-open {
         text-align: center;
         margin-right: 44px;
     }
-    .mobile-menu .submenu-services
+    .mm-wrap .mm-sublist
     {
         list-style: none;
         padding: 6px 0 0 0;
         margin: 0;
     }
-    .mobile-menu .submenu-services li a
+    .mm-wrap .mm-sublist li
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .mm-wrap .mm-sublist li a
     {
         display: block;
         padding: 15px 20px;
@@ -4442,23 +4460,14 @@ body.modal-open {
         font-weight: 400;
         line-height: 1.45;
     }
-    .mobile-menu .has-children > a::after
-    {
-        content: "›";
-        font-size: 26px;
-        line-height: 1;
-        color: #558255;
-        font-weight: 400;
-        margin-left: 8px;
-    }
-    .mobile-menu .mmenu-foot
+    .mm-wrap .mm-foot
     {
         padding: 24px 20px 10px 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-    .mobile-menu .mmenu-call
+    .mm-wrap .mm-call
     {
         display: flex;
         align-items: center;
@@ -4471,7 +4480,7 @@ body.modal-open {
         padding: 16px;
         text-decoration: none;
     }
-    .mobile-menu .mmenu-mail
+    .mm-wrap .mm-mail
     {
         text-align: center;
         color: #558255;
@@ -4479,21 +4488,6 @@ body.modal-open {
         text-decoration: none;
         padding: 8px;
     }
-}
-
-/* === Mobile v2 vs legacy: добивки специфичности === */
-.mobile-menu .menu
-{
-    opacity: 1;
-}
-.mobile-menu .menu-bar
-{
-    opacity: 1;
-}
-.mobile-menu .menu-bar span
-{
-    top: auto;
-    left: auto;
 }
 
 /* --- HERO home (tpl 1) --- */
