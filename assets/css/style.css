@@ -4358,7 +4358,9 @@ body.modal-open {
         color: #1a1a1a;
         text-decoration: none;
         font-size: 17px;
-        font-weight: 600;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0;
         border-bottom: 1px solid #f0f0f0;
     }
     .mobile-menu .has-children > a::after
@@ -4405,7 +4407,8 @@ body.modal-open {
         background: none;
         border: none;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
+        line-height: 1.4;
         padding: 12px;
         cursor: pointer;
         color: #558255;
@@ -4414,7 +4417,8 @@ body.modal-open {
     .mobile-menu .submenu-title
     {
         font-size: 17px;
-        font-weight: 700;
+        font-weight: 600;
+        line-height: 1.4;
         color: #1a1a1a;
         flex: 1;
         text-align: center;
@@ -4434,6 +4438,8 @@ body.modal-open {
         text-decoration: none;
         border-bottom: 1px solid #f0f0f0;
         font-size: 16px;
+        font-weight: 400;
+        line-height: 1.45;
     }
     .mobile-menu .mmenu-foot
     {
