@@ -477,12 +477,11 @@ document.addEventListener('fetchit:success', (e) => {
 document.addEventListener('DOMContentLoaded', function() {
     
     const modal = document.getElementById('modal-form');
-    const closeBtn = modal.querySelector('.custom-modal-close');
-    const overlay = modal.querySelector('.custom-modal-overlay');
-    
     if (!modal) {
         return;
     }
+    const closeBtn = modal.querySelector('.custom-modal-close');
+    const overlay = modal.querySelector('.custom-modal-overlay');
     
     // === Открытие модального окна ===
     function openModal() {
