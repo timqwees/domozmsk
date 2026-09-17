@@ -4719,3 +4719,70 @@ a.abssocial__fo
 {
     pointer-events: none;
 }
+
+/* === Goo-виджет связи (чанк social): шарик раскрывается веером вверх === */
+.gm-wrap
+{
+    position: fixed;
+    right: 20px;
+    bottom: 24px;
+    z-index: 9000;
+}
+.gm-goo
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+.gm-menu
+{
+    position: relative;
+    width: 62px;
+    height: 62px;
+    filter: url(#gmGoo);
+}
+.gm-item
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .4s cubic-bezier(.68,-.55,.27,1.55);
+    will-change: transform;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.gm-item svg
+{
+    display: block;
+}
+.gm-toggle
+{
+    z-index: 2;
+    background: #558255;
+    transition: transform .3s ease;
+}
+.gm-menu.gm-open .gm-toggle
+{
+    transform: rotate(135deg);
+}
+.gm-item:not(.gm-toggle)
+{
+    transform: translateY(0) scale(.5);
+    opacity: .01;
+}
+.gm-menu.gm-open .gm-item:not(.gm-toggle)
+{
+    opacity: 1;
+    transform: translateY(calc(var(--i) * -72px)) scale(1);
+    transition-delay: calc(var(--i) * .04s);
+}

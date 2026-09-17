@@ -902,3 +902,25 @@ document.addEventListener('fetchit:success', function () {
         window.location.href = '/thanks';
     }, 900);
 });
+
+/* --- Goo-виджет связи (чанк social) --- */
+(function () {
+    var menu = document.getElementById('gmMenu');
+    var toggle = document.getElementById('gmToggle');
+    if (!menu || !toggle) return;
+    function setOpen(open) {
+        if (open) menu.classList.add('gm-open');
+        else menu.classList.remove('gm-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function () {
+        setOpen(!menu.classList.contains('gm-open'));
+    });
+    menu.addEventListener('click', function (e) {
+        var item = e.target.closest('.gm-item');
+        if (item && item !== toggle) setOpen(false);
+    });
+    document.addEventListener('click', function (e) {
+        if (!menu.contains(e.target)) setOpen(false);
+    });
+})();
