@@ -4455,3 +4455,6 @@ body {
             filter: none;
             animation: none !important;
         }
+
+/* !text-black: important-модификатор не попадает в сборку Tailwind (сканер), поэтому явно */
+.\!text-black { color: #000 !important; }
