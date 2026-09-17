@@ -4469,6 +4469,8 @@ body {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: url(#displacementFilter);
     -webkit-backdrop-filter: url(#displacementFilter);
 }
