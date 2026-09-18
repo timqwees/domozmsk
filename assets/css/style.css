@@ -4793,3 +4793,10 @@ h2.section-title
     display: block;
     text-align: center;
 }
+
+/* Все h3 всегда по центру (перебивает text-left/text-start) */
+h3.text-left,
+h3.text-start
+{
+    text-align: center;
+}
