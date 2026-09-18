@@ -4786,3 +4786,10 @@ a.abssocial__fo
     transform: translateY(calc(var(--i) * -72px)) scale(1);
     transition-delay: calc(var(--i) * .04s);
 }
+
+/* Секционные заголовки всегда по центру (mx-auto без text-center не работал) */
+h2.section-title
+{
+    display: block;
+    text-align: center;
+}
