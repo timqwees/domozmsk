@@ -76,10 +76,6 @@ scroll-behavior:auto
 {
 animation:none!important
 }
-#snow
-{
-display:none!important
-}
 }
 /* ============ HEADER ============ */
 .hnav
@@ -204,10 +200,6 @@ transform:translateY(-2px)
 .btn .arr
 {
 font-size:17px;font-weight:400
-}
-#snow
-{
-position:fixed;inset:0;width:100vw;height:100vh;z-index:var(--z-snow);pointer-events:none
 }
 .hero .corner
 {
@@ -368,6 +360,38 @@ display:block;font-family:'Manrope',Arial,sans-serif;font-size:8px;letter-spacin
 {
 background:linear-gradient(180deg,#f3d393,#d9a958)!important;color:#3a2a12!important;font-size:11px!important;font-weight:800!important;letter-spacing:.02em!important;padding:10px 18px!important;border-radius:20px!important;box-shadow:0 4px 16px rgba(217,169,88,.35);min-height:44px;display:inline-flex;align-items:center
 }
+.ny-dd
+{
+position:relative
+}
+.ny-dd>a
+{
+display:inline-block;padding:12px 0
+}
+.ny-dd-menu
+{
+position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:250px;margin:0;padding:8px;list-style:none;background:#0d1f16;border:1px solid rgba(217,171,94,.3);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.5);visibility:hidden;opacity:0;transition:.2s;z-index:300
+}
+.ny-dd-menu.ny-cols
+{
+display:grid;grid-template-columns:1fr 1fr;min-width:480px
+}
+.ny-dd-menu li
+{
+list-style:none
+}
+.ny-dd-menu a
+{
+display:block;padding:9px 14px;font-size:11px;letter-spacing:.04em;text-transform:none;font-weight:500;color:#e8e2d2!important;border-radius:8px;white-space:normal
+}
+.ny-dd-menu a:hover
+{
+background:rgba(217,171,94,.12);color:#e8c07a!important
+}
+.ny-dd:hover .ny-dd-menu,.ny-dd:focus-within .ny-dd-menu
+{
+visibility:visible;opacity:1
+}
 .ny-mlogo
 {
 display:none
@@ -481,15 +505,43 @@ width:150px!important;opacity:.7
 </head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
-<div class="snowflakes" id="snowflakes" aria-hidden="true"></div>
 
-<!-- ===== ШАПКА ===== -->
+<!-- ===== ШАПКА: наше меню в стиле страницы ===== -->
 <header class="ny-header">
   <div class="ny-in">
     <nav aria-label="Основная навигация">
     <ul class="ny-nav ny-hide">
-      <li><a href="https://domozmsk.ru/history-company">О нас</a></li>
-      <li><a href="https://domozmsk.ru/#vidy">Услуги</a></li>
+      <li class="ny-dd">
+        <a href="https://domozmsk.ru/#vidy" aria-haspopup="true">Услуги</a>
+        <ul class="ny-dd-menu ny-cols">
+          <li><a href="[[~2]]"><span>Ландшафтное проектирование</span></a></li>
+          <li><a href="[[~16]]"><span>Дренаж и ливневая канализация</span></a></li>
+          <li><a href="[[~11]]"><span>Автополив</span></a></li>
+          <li><a href="[[~13]]"><span>Ландшафтное освещение</span></a></li>
+          <li><a href="[[~18]]"><span>Мощение</span></a></li>
+          <li><a href="[[~17]]"><span>Газон</span></a></li>
+          <li><a href="[[~57]]"><span>Уход за растениями</span></a></li>
+          <li><a href="[[~12]]"><span>Городское благоустройство и озеленение</span></a></li>
+          <li><a href="[[~24]]"><span>Топографическая съемка участка</span></a></li>
+          <li><a href="[[~112]]"><span>Посадка и пересадка растений</span></a></li>
+          <li><a href="[[~20]]"><span>Резиновые покрытия</span></a></li>
+          <li><a href="[[~19]]"><span>Асфальтирование участка</span></a></li>
+          <li><a href="[[~14]]"><span>Подпорные стенки</span></a></li>
+          <li><a href="[[~22]]"><span>Монтаж МАФ</span></a></li>
+          <li><a href="[[~23]]"><span>Монтаж ограждений</span></a></li>
+          <li><a href="[[~7]]"><span>Новогоднее оформление</span></a></li>
+        </ul>
+      </li>
+      <li class="ny-dd">
+        <a href="https://domozmsk.ru/history-company" aria-haspopup="true">О нас</a>
+        <ul class="ny-dd-menu">
+          <li><a href="https://domozmsk.ru/history-company"><span>История компании</span></a></li>
+          <li><a href="https://domozmsk.ru/history-company/nasha-komanda"><span>Наша команда</span></a></li>
+          <li><a href="https://domozmsk.ru/history-company/reviews"><span>Отзывы</span></a></li>
+          <li><a href="https://domozmsk.ru/history-company/rabochij-proczess"><span>Рабочий процесс</span></a></li>
+          <li><a href="https://domozmsk.ru/history-company/contact"><span>Контакты</span></a></li>
+        </ul>
+      </li>
       <li><a href="https://domozmsk.ru/blogs">Блоги</a></li>
       <li><a href="https://domozmsk.ru/#kviz">Рассчитать проект</a></li>
     </ul>
@@ -502,20 +554,45 @@ width:150px!important;opacity:.7
     <ul class="ny-nav ny-hide">
       <li><a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a></li>
       <li><a href="https://domozmsk.ru/prices">Цены</a></li>
-      <li><a href="#">Партнерская программа</a></li>
+      <li><a href="[[~52]]">Партнерская программа</a></li>
       <li><a class="ny-phone" href="tel:+79859207700">+7 (985) 920-77-00</a></li>
     </ul>
     </nav>
     <div class="mm-wrap">
       <button class="mm-burger" id="mmBtn" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="mm-panel" id="mmPanel" aria-label="Мобильная навигация">
-        <a href="https://domozmsk.ru/history-company">О нас</a>
-        <a href="https://domozmsk.ru/#vidy">Услуги</a>
+        <details class="mm-det">
+          <summary>Услуги</summary>
+          <a href="[[~2]]">Ландшафтное проектирование</a>
+          <a href="[[~16]]">Дренаж и ливневая канализация</a>
+          <a href="[[~11]]">Автополив</a>
+          <a href="[[~13]]">Ландшафтное освещение</a>
+          <a href="[[~18]]">Мощение</a>
+          <a href="[[~17]]">Газон</a>
+          <a href="[[~57]]">Уход за растениями</a>
+          <a href="[[~12]]">Городское благоустройство и озеленение</a>
+          <a href="[[~24]]">Топографическая съемка участка</a>
+          <a href="[[~112]]">Посадка и пересадка растений</a>
+          <a href="[[~20]]">Резиновые покрытия</a>
+          <a href="[[~19]]">Асфальтирование участка</a>
+          <a href="[[~14]]">Подпорные стенки</a>
+          <a href="[[~22]]">Монтаж МАФ</a>
+          <a href="[[~23]]">Монтаж ограждений</a>
+          <a href="[[~7]]">Новогоднее оформление</a>
+        </details>
+        <details class="mm-det">
+          <summary>О нас</summary>
+          <a href="https://domozmsk.ru/history-company">История компании</a>
+          <a href="https://domozmsk.ru/history-company/nasha-komanda">Наша команда</a>
+          <a href="https://domozmsk.ru/history-company/reviews">Отзывы</a>
+          <a href="https://domozmsk.ru/history-company/rabochij-proczess">Рабочий процесс</a>
+          <a href="https://domozmsk.ru/history-company/contact">Контакты</a>
+        </details>
         <a href="https://domozmsk.ru/blogs">Блоги</a>
         <a href="https://domozmsk.ru/#kviz">Рассчитать проект</a>
         <a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a>
         <a href="https://domozmsk.ru/prices">Цены</a>
-        <a href="#">Партнерская программа</a>
+        <a href="[[~52]]">Партнерская программа</a>
         <a href="https://domozmsk.ru/history-company/contact">Контакты</a>
         <a href="tel:+79859207700" class="mm-call">+7 (985) 920-77-00</a>
       </nav>
@@ -530,7 +607,6 @@ width:150px!important;opacity:.7
   <img class="hero-bg" src="https://images.unsplash.com/photo-1512474932049-78ac69ede12c?w=1920&q=80&auto=format&fit=crop" alt="" aria-hidden="true" fetchpriority="high">
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-warm" aria-hidden="true"></div>
-  <canvas id="snow" aria-hidden="true"></canvas>
   <svg class="swag" aria-hidden="true" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,15 Q200,80 420,45 Q640,15 860,50 Q1040,72 1200,30" fill="none" stroke="rgba(255,210,130,.32)" stroke-width="1.4"/></svg>
   <div id="bulbs" aria-hidden="true"></div>
   <div class="snowground" aria-hidden="true"></div>
@@ -1102,35 +1178,25 @@ font-size:28px
 flex-direction:column
 }
 }
-/* фигурные снежинки поверх страницы */
-.snowflakes
+.mm-det
 {
-position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden
+border-bottom:1px solid rgba(217,171,94,.15)
 }
-.snowflake
+.mm-det summary
 {
-position:absolute;top:-48px;color:#fff;animation-name:snowfall;animation-timing-function:linear;animation-iteration-count:infinite;text-shadow:0 0 8px rgba(255,255,255,.7)
+list-style:none;display:block;padding:10px 14px;color:#e8e2d2;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer
 }
-@keyframes snowfall
+.mm-det summary::-webkit-details-marker
 {
-0%
-{
-transform:translate3d(0,-5%,0) rotate(0deg)
+display:none
 }
-100%
+.mm-det summary:hover
 {
-transform:translate3d(70px,108vh,0) rotate(340deg)
+color:#e8c07a
 }
-}
-@keyframes snowdrift
+.mm-det a
 {
-0%
-{
-transform:translate3d(0,-5%,0) rotate(0deg)
-}
-100%
-{
-transform:translate3d(-80px,108vh,0) rotate(-320deg)
+display:block;padding:8px 14px 8px 26px;font-size:12px;text-transform:none;letter-spacing:.02em;color:#c9cfbf
 }
 }
 </style>
@@ -1213,7 +1279,7 @@ transform:translate3d(-80px,108vh,0) rotate(-320deg)
   <div class="footer-in">
     <div class="logo" style="text-align:left"><b>ДОМОZ</b><small>Ландшафтная компания</small></div>
     <nav class="hnav" aria-label="Навигация в подвале"><a href="https://domozmsk.ru/history-company">О нас</a><a href="https://domozmsk.ru/#vidy">Услуги</a><a href="https://domozmsk.ru/blogs">Блоги</a><a href="https://domozmsk.ru/#kviz">Рассчитать проект</a></nav>
-    <nav class="hnav" aria-label="Дополнительно в подвале"><a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a><a href="https://domozmsk.ru/prices">Цены</a><a href="#">Партнерская программа</a><a class="phone" href="tel:+79859207700">+7 (985) 920-77-00</a></nav>
+    <nav class="hnav" aria-label="Дополнительно в подвале"><a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a><a href="https://domozmsk.ru/prices">Цены</a><a href="[[~52]]">Партнерская программа</a><a class="phone" href="tel:+79859207700">+7 (985) 920-77-00</a></nav>
   </div>
 </footer>
 
@@ -1274,65 +1340,26 @@ transform:translate3d(-80px,108vh,0) rotate(-320deg)
 }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
 <script>
-// снег на весь экран: два слоя глубины (дальний мелкий + ближний крупный с мягким свечением)
-(function()
+// снег: библиотека Snowstorm (падает поверх страницы, клики пропускает)
+if(typeof snowStorm!=='undefined')
 {
-const c=document.getElementById('snow');
-if(!c)
-{
-return
-}
+snowStorm.flakesMax = 120;
+snowStorm.flakesMaxActive = 90;
+snowStorm.animationInterval = 33;
+snowStorm.excludeMobile = false;
+snowStorm.followMouse = false;
+snowStorm.freezeOnBlur = true;
+snowStorm.useTwinkleEffect = true;
+snowStorm.snowColor = '#ffffff';
+snowStorm.snowCharacter = '❄';
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)
 {
-return
-}
-const x=c.getContext('2d');
-let W,H;
-const far=[],near=[];
-function rs()
-{
-W=c.width=innerWidth;H=c.height=innerHeight
-}
-rs();
-addEventListener('resize',rs);
-function mk(n,arr,rMin,rMax,sMin,sMax,oMin,oMax,ph)
-{
-for(let i=0;i<n;i++)
-{
-arr.push({x:Math.random()*3000,y:Math.random()*1600,r:rMin+Math.random()*(rMax-rMin),s:sMin+Math.random()*(sMax-sMin),o:oMin+Math.random()*(oMax-oMin),p:Math.random()*6.28,ph:ph+Math.random()*2})
+snowStorm.flakesMax = 0;
+snowStorm.flakesMaxActive = 0
 }
 }
-mk(130,far,.7,1.8,.3,.9,.25,.6,0);
-mk(36,near,2.2,4.2,.7,1.4,.35,.75,9);
-function flake(d,t,blur,glow)
-{
-d.y+=d.s;
-d.x+=Math.sin(t/1600+d.p)*.4;
-if(d.y>H+8)
-{
-d.y=-8;d.x=Math.random()*W
-}
-x.globalAlpha=d.o*(0.75+0.25*Math.sin(t/900+d.ph));
-x.beginPath();x.arc((d.x%W+W)%W,d.y|0,d.r,0,6.28);x.fill()
-}
-(function loop(t)
-{
-x.clearRect(0,0,W,H);
-x.fillStyle='#fff';
-x.shadowBlur=0;
-far.forEach(function(d)
-{
-flake(d,t,false,false)
-});
-x.shadowColor='rgba(255,240,210,.9)';x.shadowBlur=12;
-near.forEach(function(d)
-{
-flake(d,t,true,true)
-});
-x.shadowBlur=0;x.globalAlpha=1;requestAnimationFrame(loop)
-})(0)
-})();
 // бургер мобильного меню
 (function()
 {
@@ -1392,36 +1419,6 @@ const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px'
 }
 })
 })
-})();
-// фигурные снежинки: генерация с разбросом размера/скорости/направления
-(function()
-{
-var box=document.getElementById('snowflakes');
-if(!box)
-{
-return
-}
-if(matchMedia('(prefers-reduced-motion: reduce)').matches)
-{
-box.style.display='none';return
-}
-var syms=['❄','❅','❆','✦'];
-for(var i=0;i<22;i++)
-{
-var f=document.createElement('span');
-f.className='snowflake';
-f.textContent=syms[i%syms.length];
-f.style.left=(Math.random()*100)+'%';
-f.style.fontSize=(10+Math.random()*16)+'px';
-f.style.opacity=(.35+Math.random()*.5);
-f.style.animationDuration=(9+Math.random()*10)+'s';
-f.style.animationDelay=(-Math.random()*12)+'s';
-if(i%2)
-{
-f.style.animationName='snowdrift'
-}
-box.appendChild(f)
-}
 })();
 </script>
 </body>
