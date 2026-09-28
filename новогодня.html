@@ -1033,15 +1033,15 @@ position:relative;background:radial-gradient(ellipse 900px 480px at 50% -60px,#1
 }
 .faq h2
 {
-font-size:35px;font-weight:600;color:#fff6e4;text-align:left
+font-size:35px;font-weight:600;color:#fff6e4;text-align:center
 }
 .faq .cs
 {
-font-size:13px;color:#aeb4a1;margin-top:6px;margin-bottom:24px
+font-size:13px;color:#aeb4a1;margin-top:6px;margin-bottom:24px;text-align:center
 }
 .faq-list
 {
-max-width:860px;position:relative;z-index:2
+max-width:860px;margin:0 auto;position:relative;z-index:2
 }
 .faq-item
 {
@@ -1342,18 +1342,22 @@ display:block;padding:8px 14px 8px 26px;font-size:12px;text-transform:none;lette
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
 <script>
-// снег: библиотека Snowstorm (падает поверх страницы, клики пропускает)
+// снег: библиотека Snowstorm — тихий уютный снегопад как в детстве
 if(typeof snowStorm!=='undefined')
 {
-snowStorm.flakesMax = 120;
-snowStorm.flakesMaxActive = 90;
-snowStorm.animationInterval = 33;
+snowStorm.flakesMax = 100;
+snowStorm.flakesMaxActive = 70;
+snowStorm.animationInterval = 40;
 snowStorm.excludeMobile = false;
 snowStorm.followMouse = false;
 snowStorm.freezeOnBlur = true;
 snowStorm.useTwinkleEffect = true;
 snowStorm.snowColor = '#ffffff';
 snowStorm.snowCharacter = '❄';
+snowStorm.vMaxX = 2;
+snowStorm.vMaxY = 1.6;
+snowStorm.windOffset = 2;
+snowStorm.windMultiplier = 1.5;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)
 {
 snowStorm.flakesMax = 0;
