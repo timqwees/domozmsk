@@ -110,6 +110,14 @@ background:linear-gradient(180deg,#f3d393,#d9a958);color:#3a2a12!important;font-
 {
 position:absolute;pointer-events:none;z-index:var(--z-branch);filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))
 }
+.snowbox
+{
+position:fixed;inset:0;z-index:2000;pointer-events:none;overflow:hidden
+}
+.snowbox *
+{
+pointer-events:none!important
+}
 /* ============ HERO ============ */
 .hero
 {
@@ -505,6 +513,7 @@ width:150px!important;opacity:.7
 </head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
+<div class="snowbox" id="snowbox" aria-hidden="true"></div>
 
 <!-- ===== ШАПКА: наше меню в стиле страницы ===== -->
 <header class="ny-header">
@@ -1063,6 +1072,10 @@ transform:rotate(45deg);background:rgba(217,171,94,.15)
 {
 max-height:0;overflow:hidden;transition:max-height .35s ease
 }
+.faq-item.open .faq-a
+{
+max-height:800px
+}
 .faq-a p
 {
 padding:0 20px 18px;font-size:13.5px;line-height:1.65;color:#c4c8b6
@@ -1358,6 +1371,20 @@ snowStorm.vMaxX = 2;
 snowStorm.vMaxY = 1.6;
 snowStorm.windOffset = 2;
 snowStorm.windMultiplier = 1.5;
+snowStorm.targetElement = 'snowbox';
+document.addEventListener('DOMContentLoaded',function()
+{
+try
+{
+if(typeof snowStorm!=='undefined')
+{
+snowStorm.start()
+}
+}
+catch(e)
+{
+}
+});
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)
 {
 snowStorm.flakesMax = 0;
