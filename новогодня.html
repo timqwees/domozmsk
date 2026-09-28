@@ -248,6 +248,18 @@ left:-12px;bottom:-12px;width:300px;transform:rotate(180deg)
 {
 right:-12px;bottom:-12px;width:300px;transform:scaleY(-1)
 }
+.crumbs
+{
+font-size:12px;color:#aeb4a1;padding:14px 0 0
+}
+.crumbs a
+{
+color:#e8c07a
+}
+.crumbs .sep
+{
+margin:0 8px;opacity:.6
+}
 /* ============ CREAM STRIP ============ */
 .strip
 {
@@ -638,6 +650,11 @@ width:150px!important;opacity:.7
 
 <main id="main">
 
+<!-- ===== ХЛЕБНЫЕ КРОШКИ ===== -->
+<div class="wrap">
+  <nav class="crumbs" aria-label="Хлебные крошки"><a href="https://domozmsk.ru/">Главная</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Новогоднее оформление</span></nav>
+</div>
+
 <!-- ===== HERO ===== -->
 <section class="hero" aria-labelledby="hero-title">
   <img class="hero-bg" src="https://images.unsplash.com/photo-1512474932049-78ac69ede12c?w=1920&q=80&auto=format&fit=crop" alt="" aria-hidden="true" fetchpriority="high">
@@ -987,7 +1004,7 @@ font-size:28px
       <h3>Консультация, смета, визуализация</h3>
       <div class="price-row"><span class="nm">Консультация, смета, визуализация</span><span class="dots" aria-hidden="true"></span><span class="pr">Бесплатно</span></div>
     </div>
-    <p class="price-note">* Цены ориентировочные. Точная смета составляется после выезда инженера.</p>
+    <p class="price-note">* Цены ориентировочные. Точная смета составляется после выезда инженера. Работаем официально по договору.</p>
     <div class="price-cta"><a class="btn" href="tel:+79859207700">Заказать расчет <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
@@ -1272,6 +1289,63 @@ display:block;padding:8px 14px 8px 26px;font-size:12px;text-transform:none;lette
   </div>
 </section>
 
+<style>
+/* ============ ЭКСПЕРТНЫЙ БЛОК ============ */
+.expert
+{
+position:relative;background:#07130e;padding:52px 0;overflow:hidden;border-top:1px solid rgba(217,171,94,.18)
+}
+.expert h2
+{
+font-size:35px;font-weight:600;color:#fff6e4;text-align:left;max-width:860px
+}
+.expert .cs
+{
+font-size:13px;color:#aeb4a1;margin-top:6px;margin-bottom:20px
+}
+.tldr
+{
+list-style:none;margin:0 0 22px;padding:18px 22px;max-width:860px;background:#0b1a13;border:1px solid rgba(217,171,94,.3);border-radius:12px;position:relative;z-index:2
+}
+.tldr li
+{
+list-style:none;font-size:13.5px;line-height:1.65;color:#e8e2d2;padding-left:22px;position:relative;margin-bottom:6px
+}
+.tldr li::before
+{
+content:'✓';position:absolute;left:0;color:#e8c07a;font-weight:800
+}
+.expert p
+{
+font-size:14px;line-height:1.7;color:#c4c8b6;max-width:860px;margin-bottom:14px;position:relative;z-index:2
+}
+.expert p a
+{
+color:#e8c07a;text-decoration:underline;text-underline-offset:3px
+}
+.expert .byline
+{
+font-size:12px;color:#8a8f80;margin-top:18px
+}
+</style>
+
+<!-- ===== ЭКСПЕРТНЫЙ МАТЕРИАЛ ===== -->
+<section class="expert" aria-labelledby="expert-title">
+  <div class="wrap">
+    <h2 class="serif" id="expert-title">Новогоднее оформление фасада дома гирляндами</h2>
+    <p class="cs">Проектирование, монтаж и демонтаж под ключ в Москве и Московской области</p>
+    <ul class="tldr">
+      <li>Полный цикл: концепция, фасад и входная группа, деревья и территория, демонтаж и хранение.</li>
+      <li>Монтаж фасада частного дома — 1–3 дня; объект готовим за 7–14 дней.</li>
+      <li>Скрытая проводка, влагозащита IP65, смета фиксируется до монтажа.</li>
+      <li>Цены: нить от 100 ₽/мп, вход и фасад под ключ от 50 000 ₽, консультация бесплатно.</li>
+    </ul>
+    <p>Украшение фасада здания — эффектный способ подчеркнуть архитектуру в зимний период. Делаем <a href="https://domozmsk.ru/uslugi/newyear">новогоднее оформление коттеджей</a>, входных групп, ресторанов и отелей в Москве и МО: проектирование, монтаж и демонтаж под ключ. Не набор гирлянд, а спроектированное решение — свет, крепёж и электрика продуманы под конкретный дом и участок.</p>
+    <p>Выполняем оформление фасада гирляндами — гибкий неон, бахрома, занавес, нить, белт лайт — с надёжным креплением и продуманными световыми сценариями. Безопасный монтаж и эффектный вид весь сезон, а <a href="https://domozmsk.ru/#vidy">ландшафтное освещение участка</a> и архитектурная подсветка могут работать круглый год. Примеры и цены — в <a href="https://domozmsk.ru/blogs">блоге</a> и разделе <a href="https://domozmsk.ru/prices">цен</a>.</p>
+    <p class="byline">Материал подготовлен инженерами «Дом Оз» · Обновлено: декабрь 2026</p>
+  </div>
+</section>
+
 <!-- ===== FAQ ===== -->
 <section class="faq" aria-labelledby="faq-title">
   <div class="wrap">
@@ -1320,6 +1394,9 @@ display:block;padding:8px 14px 8px 26px;font-size:12px;text-transform:none;lette
     <nav class="hnav" aria-label="Навигация в подвале"><a href="https://domozmsk.ru/history-company">О нас</a><a href="https://domozmsk.ru/#vidy">Услуги</a><a href="https://domozmsk.ru/blogs">Блоги</a><a href="https://domozmsk.ru/#kviz">Рассчитать проект</a></nav>
     <nav class="hnav" aria-label="Дополнительно в подвале"><a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a><a href="https://domozmsk.ru/prices">Цены</a><a href="[[~52]]">Партнерская программа</a><a class="phone" href="tel:+79859207700">+7 (985) 920-77-00</a></nav>
   </div>
+  <div class="footer-in" style="padding-top:0">
+    <p style="font-size:11.5px;color:#8a8f80"><a href="mailto:DOMOZ.77@yandex.ru" style="color:#c9cfbf">DOMOZ.77@yandex.ru</a> · Москва, Головинское шоссе, 5 · Работаем официально по договору</p>
+  </div>
 </footer>
 
 <script type="application/ld+json">
@@ -1339,6 +1416,52 @@ display:block;padding:8px 14px 8px 26px;font-size:12px;text-transform:none;lette
 "addressCountry": "RU"
 },
 "areaServed": ["Москва", "Московская область"]
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Service",
+"name": "Новогоднее оформление под ключ",
+"url": "https://domozmsk.ru/novogodnee-oformlenie",
+"provider":
+{
+"@type": "Organization",
+"name": "Дом Оз"
+},
+"areaServed": ["Москва", "Московская область"],
+"aggregateRating":
+{
+"@type": "AggregateRating",
+"ratingValue": "5.0",
+"reviewCount": "3"
+},
+"offers":
+{
+"@type": "AggregateOffer",
+"lowPrice": "100",
+"highPrice": "50000",
+"priceCurrency": "RUB"
+}
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "Главная",
+"item": "https://domozmsk.ru/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "Новогоднее оформление"
+}
+]
 }
 </script>
 <script type="application/ld+json">
