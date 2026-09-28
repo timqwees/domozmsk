@@ -1243,7 +1243,7 @@ flex-direction:column
 </script>
 
 <script>
-// снег на весь экран
+// снег на весь экран: два слоя глубины (дальний мелкий + ближний крупный с мягким свечением)
 (function()
 {
 const c=document.getElementById('snow');
@@ -1256,30 +1256,49 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)
 return
 }
 const x=c.getContext('2d');
-let W,H,f=[];
+let W,H;
+const far=[],near=[];
 function rs()
 {
 W=c.width=innerWidth;H=c.height=innerHeight
 }
 rs();
 addEventListener('resize',rs);
-for(let i=0;i<140;i++)
+function mk(n,arr,rMin,rMax,sMin,sMax,oMin,oMax,ph)
 {
-f.push({x:Math.random()*3000,y:Math.random()*1600,r:Math.random()*2.4+.7,s:Math.random()*.9+.3,o:Math.random()*.6+.3,p:Math.random()*6.28})
+for(let i=0;i<n;i++)
+{
+arr.push({x:Math.random()*3000,y:Math.random()*1600,r:rMin+Math.random()*(rMax-rMin),s:sMin+Math.random()*(sMax-sMin),o:oMin+Math.random()*(oMax-oMin),p:Math.random()*6.28,ph:ph+Math.random()*2})
+}
+}
+mk(130,far,.7,1.8,.3,.9,.25,.6,0);
+mk(36,near,2.2,4.2,.7,1.4,.35,.75,9);
+function flake(d,t,blur,glow)
+{
+d.y+=d.s;
+d.x+=Math.sin(t/1600+d.p)*.4;
+if(d.y>H+8)
+{
+d.y=-8;d.x=Math.random()*W
+}
+x.globalAlpha=d.o*(0.75+0.25*Math.sin(t/900+d.ph));
+x.beginPath();x.arc((d.x%W+W)%W,d.y|0,d.r,0,6.28);x.fill()
 }
 (function loop(t)
 {
-x.clearRect(0,0,W,H);x.fillStyle='#fff';
-f.forEach(function(d)
+x.clearRect(0,0,W,H);
+x.fillStyle='#fff';
+x.shadowBlur=0;
+far.forEach(function(d)
 {
-d.y+=d.s;d.x+=Math.sin(t/1500+d.p)*.35;
-if(d.y>H+6)
-{
-d.y=-6;d.x=Math.random()*W
-}
-x.globalAlpha=d.o;x.beginPath();x.arc((d.x%W)|0,d.y|0,d.r,0,6.28);x.fill()
+flake(d,t,false,false)
 });
-x.globalAlpha=1;requestAnimationFrame(loop)
+x.shadowColor='rgba(255,240,210,.9)';x.shadowBlur=12;
+near.forEach(function(d)
+{
+flake(d,t,true,true)
+});
+x.shadowBlur=0;x.globalAlpha=1;requestAnimationFrame(loop)
 })(0)
 })();
 // бургер мобильного меню
