@@ -481,6 +481,7 @@ width:150px!important;opacity:.7
 </head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
+<div class="snowflakes" id="snowflakes" aria-hidden="true"></div>
 
 <!-- ===== ШАПКА ===== -->
 <header class="ny-header">
@@ -1101,6 +1102,37 @@ font-size:28px
 flex-direction:column
 }
 }
+/* фигурные снежинки поверх страницы */
+.snowflakes
+{
+position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden
+}
+.snowflake
+{
+position:absolute;top:-48px;color:#fff;animation-name:snowfall;animation-timing-function:linear;animation-iteration-count:infinite;text-shadow:0 0 8px rgba(255,255,255,.7)
+}
+@keyframes snowfall
+{
+0%
+{
+transform:translate3d(0,-5%,0) rotate(0deg)
+}
+100%
+{
+transform:translate3d(70px,108vh,0) rotate(340deg)
+}
+}
+@keyframes snowdrift
+{
+0%
+{
+transform:translate3d(0,-5%,0) rotate(0deg)
+}
+100%
+{
+transform:translate3d(-80px,108vh,0) rotate(-320deg)
+}
+}
 </style>
 
 <!-- ===== ОТЗЫВЫ ===== -->
@@ -1360,6 +1392,36 @@ const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px'
 }
 })
 })
+})();
+// фигурные снежинки: генерация с разбросом размера/скорости/направления
+(function()
+{
+var box=document.getElementById('snowflakes');
+if(!box)
+{
+return
+}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)
+{
+box.style.display='none';return
+}
+var syms=['❄','❅','❆','✦'];
+for(var i=0;i<22;i++)
+{
+var f=document.createElement('span');
+f.className='snowflake';
+f.textContent=syms[i%syms.length];
+f.style.left=(Math.random()*100)+'%';
+f.style.fontSize=(10+Math.random()*16)+'px';
+f.style.opacity=(.35+Math.random()*.5);
+f.style.animationDuration=(9+Math.random()*10)+'s';
+f.style.animationDelay=(-Math.random()*12)+'s';
+if(i%2)
+{
+f.style.animationName='snowdrift'
+}
+box.appendChild(f)
+}
 })();
 </script>
 </body>
