@@ -98,34 +98,6 @@ display:none!important
 }
 }
 /* ============ HEADER ============ */
-.hnav
-{
-display:flex;align-items:center;gap:20px;font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--nav);white-space:nowrap
-}
-.hnav a
-{
-opacity:.9;transition:.2s
-}
-.hnav a:hover
-{
-color:var(--gold)
-}
-.logo
-{
-text-align:center;line-height:1;flex-shrink:0
-}
-.logo b
-{
-font-family:'Playfair Display',serif;font-weight:600;font-size:27px;letter-spacing:.14em;color:#fff
-}
-.logo small
-{
-display:block;font-size:8px;letter-spacing:.1em;color:#a9b09a;margin-top:3px
-}
-.phone
-{
-background:linear-gradient(180deg,#f3d393,#d9a958);color:#3a2a12!important;font-size:10.5px!important;font-weight:800!important;letter-spacing:.02em!important;padding:7px 15px;border-radius:20px;box-shadow:0 4px 16px rgba(217,169,88,.35)
-}
 .corner
 {
 position:absolute;pointer-events:none;z-index:var(--z-branch);filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))
@@ -195,7 +167,7 @@ font-size:10.5px;font-weight:600;letter-spacing:.24em;color:var(--gold);margin-b
 }
 .hero h1
 {
-font-size:55px;line-height:1.1;font-weight:600;color:#fff8ea;max-width:560px;text-shadow:0 2px 26px rgba(0,0,0,.55);text-align:left
+font-size:55px;line-height:1.1;font-weight:600;color:#fff8ea;max-width:700px;text-shadow:0 2px 26px rgba(0,0,0,.55);text-align:left
 }
 .hero-sub
 {
@@ -439,6 +411,14 @@ background:rgba(217,171,94,.12);color:#e8c07a!important
 {
 visibility:visible;opacity:1
 }
+.ny-dd-menu
+{
+max-width:calc(100vw - 32px)
+}
+.ny-nav>li:first-child .ny-dd-menu
+{
+left:0;transform:none
+}
 .ny-mlogo
 {
 display:none
@@ -667,7 +647,7 @@ width:150px!important;opacity:.7
   <img class="corner hb-r" src="/assets/img/icon/елка/vetka1.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap hero-in">
     <p class="eyebrow">ПРАЗДНИК НАЧИНАЕТСЯ ДОМА</p>
-    <h1 class="serif" id="hero-title">Создайте<br>волшебную атмосферу<br>Нового года</h1>
+    <h1 class="serif" id="hero-title">Создайте волшебную атмосферу Нового года</h1>
     <p class="hero-sub">Стильные ёлки, украшения и декор, которые превратят ваш дом в настоящую зимнюю сказку.</p>
     <a class="btn" href="#cats">Перейти в каталог <span class="arr" aria-hidden="true">→</span></a>
   </div>
@@ -1187,23 +1167,174 @@ right:-10px;bottom:-10px;width:360px
 }
 .footer
 {
-background:var(--foot);border-top:1px solid rgba(217,171,94,.22);position:relative;overflow:hidden
+position:relative;overflow:hidden;background:#0b110e;color:#fff
 }
-.footer-in
+.f-glow
 {
-max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 26px;position:relative;z-index:2
+position:absolute;border-radius:50%;pointer-events:none
 }
-.footer .logo b
+.f-g1
 {
-font-size:21px
+right:-160px;top:-160px;width:420px;height:420px;background:rgba(88,124,78,.10);filter:blur(60px)
 }
-.footer .hnav
+.f-g2
 {
-font-size:9px
+left:-160px;bottom:0;width:350px;height:350px;background:rgba(88,124,78,.05);filter:blur(60px)
 }
-.corner.ft-l
+.f-in
 {
-left:-12px;bottom:-12px;width:300px;transform:rotate(180deg)
+position:relative;max-width:1280px;margin:0 auto;padding:48px 20px 0
+}
+.f-grid
+{
+display:grid;grid-template-columns:4fr 2fr 2fr 4fr;gap:40px
+}
+.f-logo img
+{
+height:48px;width:auto
+}
+.f-about
+{
+margin-top:20px;max-width:360px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.55)
+}
+.f-check
+{
+margin-top:24px;display:flex;flex-direction:column;gap:12px
+}
+.f-check div
+{
+display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.65)
+}
+.f-check .ok
+{
+flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(88,124,78,.2);color:#88a97c;display:flex;align-items:center;justify-content:center
+}
+.f-check .ok svg
+{
+width:14px;height:14px
+}
+.f-soc
+{
+margin-top:28px;display:flex;gap:10px
+}
+.f-soc a
+{
+width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;transition:.2s
+}
+.f-soc a:hover
+{
+border-color:rgba(88,124,78,.5);background:rgba(88,124,78,.2);color:#fff
+}
+.f-soc svg
+{
+width:16px;height:16px
+}
+.f-h
+{
+font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:20px;text-align:left
+}
+.f-links
+{
+list-style:none;margin:0;padding:0
+}
+.f-links li
+{
+list-style:none;margin-bottom:12px
+}
+.f-links a
+{
+position:relative;display:inline-block;font-size:14px;color:rgba(255,255,255,.5);transition:.3s
+}
+.f-links a::before
+{
+content:'';position:absolute;left:0;top:50%;height:2px;width:0;border-radius:2px;background:#558255;opacity:0;transform:translateY(-50%);transition:.3s
+}
+.f-links a:hover
+{
+color:#fff;padding-left:16px
+}
+.f-links a:hover::before
+{
+width:8px;opacity:1
+}
+.f-links.cols
+{
+display:grid;grid-template-columns:1fr 1fr;gap:0 20px
+}
+.f-contact
+{
+margin-top:28px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px
+}
+.f-contact .lbl
+{
+font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px
+}
+.f-line
+{
+display:flex;gap:12px;margin-bottom:12px;font-size:14px;color:rgba(255,255,255,.75)
+}
+.f-line a:hover
+{
+color:#fff
+}
+.f-ic
+{
+flex-shrink:0;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center
+}
+.f-ic svg
+{
+width:14px;height:14px
+}
+.f-cta
+{
+margin-top:48px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045);border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px
+}
+.f-cta b
+{
+font-size:16px;font-weight:500;color:#fff;display:block
+}
+.f-cta span
+{
+font-size:14px;color:rgba(255,255,255,.45)
+}
+.f-btn
+{
+flex-shrink:0;background:#7fa66b;color:#fff;font-size:14px;font-weight:500;padding:12px 24px;border-radius:12px;transition:.2s
+}
+.f-btn:hover
+{
+background:#91b77b
+}
+.f-bottom
+{
+margin-top:40px;border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;flex-wrap:wrap;gap:8px 20px
+}
+.f-bottom a
+{
+font-size:12px;color:rgba(255,255,255,.35)
+}
+.f-bottom a:hover
+{
+color:rgba(255,255,255,.7)
+}
+.f-copy
+{
+margin-top:24px;border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.3)
+}
+.f-copy a
+{
+color:rgba(255,255,255,.3)
+}
+.f-copy a:hover
+{
+color:rgba(255,255,255,.6)
+}
+@media(max-width:1020px)
+{
+.f-grid
+{
+grid-template-columns:1fr 1fr
+}
 }
 @media(max-width:1020px)
 {
@@ -1230,9 +1361,13 @@ min-height:300px
 {
 font-size:28px
 }
-.footer-in
+.f-grid
 {
-flex-direction:column
+grid-template-columns:1fr
+}
+.f-cta
+{
+flex-direction:column;align-items:flex-start
 }
 }
 .mm-det
@@ -1387,15 +1522,86 @@ font-size:12px;color:#8a8f80;margin-top:18px
 </main>
 
 <!-- ===== ФУТЕР ===== -->
-<footer class="footer">
-  <img class="corner ft-l" src="/assets/img/icon/елка/vetka1.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
-  <div class="footer-in">
-    <div class="logo" style="text-align:left"><b>ДОМОZ</b><small>Ландшафтная компания</small></div>
-    <nav class="hnav" aria-label="Навигация в подвале"><a href="https://domozmsk.ru/history-company">О нас</a><a href="https://domozmsk.ru/#vidy">Услуги</a><a href="https://domozmsk.ru/blogs">Блоги</a><a href="https://domozmsk.ru/#kviz">Рассчитать проект</a></nav>
-    <nav class="hnav" aria-label="Дополнительно в подвале"><a href="https://domozmsk.ru/history-company/glavnaya-uslug">Поиск по сайту</a><a href="https://domozmsk.ru/prices">Цены</a><a href="[[~52]]">Партнерская программа</a><a class="phone" href="tel:+79859207700">+7 (985) 920-77-00</a></nav>
-  </div>
-  <div class="footer-in" style="padding-top:0">
-    <p style="font-size:11.5px;color:#8a8f80"><a href="mailto:DOMOZ.77@yandex.ru" style="color:#c9cfbf">DOMOZ.77@yandex.ru</a> · Москва, Головинское шоссе, 5 · Работаем официально по договору</p>
+<footer class="footer" aria-label="Подвал сайта">
+  <div class="f-glow f-g1" aria-hidden="true"></div>
+  <div class="f-glow f-g2" aria-hidden="true"></div>
+  <div class="f-in">
+    <div class="f-grid">
+      <div>
+        <a href="https://domozmsk.ru/" class="f-logo" aria-label="Дом Оз — на главную"><img src="/assets/img/logo.png" alt="Дом Оз — ландшафтный дизайн и благоустройство" loading="lazy"></a>
+        <p class="f-about">Ландшафтный дизайн и благоустройство участков под ключ в Москве, Московской области и Сочи. Проектируем, строим и сопровождаем объект на всех этапах.</p>
+        <div class="f-check">
+          <div><span class="ok" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.884a1 1 0 01.112 1.41l-7.25 8a1 1 0 01-1.45.035l-3.75-3.75a1 1 0 011.414-1.414l3.008 3.007 6.543-7.223a1 1 0 011.373-.065z" clip-rule="evenodd"/></svg></span>Более 120 реализованных проектов</div>
+          <div><span class="ok" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.884a1 1 0 01.112 1.41l-7.25 8a1 1 0 01-1.45.035l-3.75-3.75a1 1 0 011.414-1.414l3.008 3.007 6.543-7.223a1 1 0 011.373-.065z" clip-rule="evenodd"/></svg></span>Гарантия на работы до 5 лет</div>
+          <div><span class="ok" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.884a1 1 0 01.112 1.41l-7.25 8a1 1 0 01-1.45.035l-3.75-3.75a1 1 0 011.414-1.414l3.008 3.007 6.543-7.223a1 1 0 011.373-.065z" clip-rule="evenodd"/></svg></span>Работаем официально по договору</div>
+        </div>
+        <div class="f-soc">
+          <a href="https://t.me/domozmskru" target="_blank" rel="noopener" aria-label="Дом Оз в Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.4 18.1 20c-.25 1.17-.9 1.46-1.83.91l-5.07-3.74-2.45 2.36c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.49c.41-.36-.09-.56-.64-.2L5.24 13.6.28 12.05c-1.08-.34-1.1-1.08.23-1.6L19.9 2.82c.91-.34 1.71.2 1.5.58z"/></svg></a>
+          <a href="https://wa.me/79859207700" target="_blank" rel="noopener" aria-label="Дом Оз в WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="f-h">Услуги</h3>
+        <ul class="f-links">
+          <li><a href="https://domozmsk.ru/uslugi/design-land-plots">Ландшафтное проектирование</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/drainage">Дренаж и ливневая канализация</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/avtopoliv">Автополив</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/backlight-design/">Ландшафтное освещение</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/moschenie">Мощение</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/gazon">Газоны</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/uxod-za-sadom">Уход за садом</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/posadka-i-peresadka-rastenij">Посадка и пересадка растений</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="f-h">Благоустройство</h3>
+        <ul class="f-links">
+          <li><a href="https://domozmsk.ru/uslugi/design-improvement-and-landscaping/ozelenenie-territorij">Озеленение территорий</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/topographic-survey">Топографическая съёмка</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/design-retaining-walls">Подпорные стенки</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/design-fences-and-barriers">Ограждения</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/architectural-forms">Малые архитектурные формы</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/asphalting">Асфальтирование</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/rubber-coatings">Резиновые покрытия</a></li>
+          <li><a href="https://domozmsk.ru/uslugi/newyear">Новогоднее оформление</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="f-h">Компания</h3>
+        <ul class="f-links cols">
+          <li><a href="https://domozmsk.ru/history-company/">О компании</a></li>
+          <li><a href="https://domozmsk.ru/history-company/nasha-komanda">Наша команда</a></li>
+          <li><a href="https://domozmsk.ru/history-company/rabochij-proczess">Рабочий процесс</a></li>
+          <li><a href="https://domozmsk.ru/history-company/reviews">Отзывы клиентов</a></li>
+          <li><a href="https://domozmsk.ru/prices">Цены на услуги</a></li>
+          <li><a href="https://domozmsk.ru/blogs">Блог</a></li>
+          <li><a href="[[~52]]">Партнёрская программа</a></li>
+        </ul>
+        <div class="f-contact">
+          <div class="lbl">Связаться с нами</div>
+          <div class="f-line"><span class="f-ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.5 3.5A1.5 1.5 0 014 2h2.1c.65 0 1.22.42 1.42 1.04l.65 2.05a1.5 1.5 0 01-.37 1.48L6.65 7.72a11.04 11.04 0 005.63 5.63l1.15-1.15a1.5 1.5 0 011.48-.37l2.05.65A1.5 1.5 0 0118 13.9V16a1.5 1.5 0 01-1.5 1.5C8.49 17.5 2.5 11.51 2.5 3.5z"/></svg></span><a href="tel:+79859207700">+7 (985) 920-77-00</a></div>
+          <div class="f-line"><span class="f-ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.5 4.5A1.5 1.5 0 014 3h12a1.5 1.5 0 011.5 1.5v11A1.5 1.5 0 0116 17H4a1.5 1.5 0 01-1.5-1.5v-11zm1.5.3v.47l6 4.5 6-4.5V4.8H4zm12 2.34-5.55 4.16a.75.75 0 01-.9 0L4 7.14v8.36h12V7.14z"/></svg></span><a href="mailto:DOMOZ.77@yandex.ru">DOMOZ.77@yandex.ru</a></div>
+          <div class="f-line"><span class="f-ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18s6-5.1 6-10A6 6 0 104 8c0 4.9 6 10 6 10zm0-7a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg></span><a href="https://yandex.ru/maps/" target="_blank" rel="noopener">Бизнес-центр «Водный»<br>Москва, Головинское шоссе, д. 5</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="f-cta">
+      <div><b>Планируете благоустройство участка?</b><span>Получите предварительную смету и план работ</span></div>
+      <a class="f-btn" href="#price">Рассчитать стоимость</a>
+    </div>
+    <div class="f-bottom" aria-label="Быстрые ссылки">
+      <a href="https://domozmsk.ru/uslugi/design-land-plots">Ландшафтное проектирование</a>
+      <a href="https://domozmsk.ru/uslugi/gazon">Газоны</a>
+      <a href="https://domozmsk.ru/uslugi/moschenie">Мощение</a>
+      <a href="https://domozmsk.ru/uslugi/drainage">Дренаж</a>
+      <a href="https://domozmsk.ru/uslugi/avtopoliv">Автополив</a>
+      <a href="https://domozmsk.ru/uslugi/uxod-za-sadom">Уход за садом</a>
+      <a href="https://domozmsk.ru/uslugi/design-retaining-walls">Подпорные стенки</a>
+    </div>
+    <div class="f-copy">
+      <p>© 2026 ДОМ ОЗ. Все права защищены.</p>
+      <div><a href="/privacy">Политика конфиденциальности</a> · <a href="[[~52]]">Партнёрская программа</a></div>
+    </div>
   </div>
 </footer>
 
